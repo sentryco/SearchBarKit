@@ -127,7 +127,7 @@ extension View {
     * - Returns: A modified version of the view with the header icon view modifier applied.
     */
    @warn_unqualified_access // ref: https://www.hackingwithswift.com/quick-start/swiftui/how-to-make-swiftui-modifiers-safer-to-use-with-warn-unqualified-access
-   public func headerIconViewModifier(iconName: String, iconSize: CGFloat = 16, padding: CGFloat = 16/*Measure.margin*/, iconColor: Color = .white, backgroundColor: Color = Color(light: Color.darkGray.opacity(0.1), dark: Color.darkGray.opacity(0.2)), strokeColor: Color = Color.blackOrWhite, strokeWidth: CGFloat = 2) -> some View {
+   internal func headerIconViewModifier(iconName: String, iconSize: CGFloat = 16, padding: CGFloat = 16/*Measure.margin*/, iconColor: Color = .white, backgroundColor: Color = Color(light: Color.darkGray.opacity(0.1), dark: Color.darkGray.opacity(0.2)), strokeColor: Color = Color.blackOrWhite, strokeWidth: CGFloat = 2) -> some View {
       let modifier = HeaderIconViewModifier(
          iconName: iconName, // Sets the name of the system icon to display.
          iconSize: iconSize, // Sets the size of the icon.
