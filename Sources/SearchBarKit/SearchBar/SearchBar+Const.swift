@@ -7,7 +7,10 @@ import HybridColor
 extension SearchBar {
    /**
     * Closure called when the text in the search bar changes.
-    * - Description: This closure is invoked when the text in the search bar changes. It allows the parent view to react and handle the updated search text in real-time.
+    * - Description: This closure is invoked when the text in the 
+    *                search bar changes. It allows the parent view to 
+    *                react and handle the updated search text in 
+    *                real-time.
     * - Parameters:
     *   - text: The new text in the search bar.
     */
@@ -18,7 +21,10 @@ extension SearchBar {
    public static let defaultOnTextChange: OnTextChange = { (_ text: String) in Swift.print("on text change: \(text)") }
    /**
     * Closure called when the search bar gains or loses focus.
-    * - Description: This closure is invoked when the search bar gains or loses focus. It allows the parent view to react and handle the focus state changes in real-time.
+    * - Description: This closure is invoked when the search bar 
+    *                gains or loses focus. It allows the parent view to 
+    *                react and handle the focus state changes in 
+    *                real-time.
     * - Parameters:
     *   - isFocused: A boolean indicating whether the search bar is now focused.
     */

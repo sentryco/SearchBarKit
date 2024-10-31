@@ -20,9 +20,16 @@ extension SearchBar {
    }
    /**
     * searchTextField
-    * - Description: This view represents the search text field in the search bar. It is responsible for displaying the search input and handling focus state changes.
+    * - Description: This view represents the search text field in the 
+    *                search bar. It is responsible for displaying the 
+    *                search input and handling focus state changes.
     * - Note: the search_text_field is the accessibility id
-    * - Note: The `focused` modifier is used to dynamically change the focus state of the text field based on the `textFieldIsFocused` state variable. This allows the text field to gain or lose focus programmatically, which is essential for managing the user's interaction with the search bar.
+    * - Note: The `focused` modifier is used to dynamically change the 
+              focus state of the text field based on the 
+              `textFieldIsFocused` state variable. This allows the text 
+              field to gain or lose focus programmatically, which is 
+              essential for managing the user's interaction with the 
+              search bar.
     * - Fixme: ⚠️️ Call methods with this, put the methods in +Action file etc
     * - Fixme: ⚠️️ Move logic into modifiers, see `PinCode`, how it's done there etc? 👈 can searchbar be a style or a modifier etc?
     * - Fixme: ⚠️️ Take a look at the new `focusEffectDisabled`: https://stackoverflow.com/a/77681648/5389500 and https://stackoverflow.com/a/60286113/5389500
@@ -50,7 +57,10 @@ extension SearchBar {
    }
    /**
     * Creates the "clear-text-btn"
-    * - Description: This view represents the clear button in the search bar. It is responsible for clearing the search text and dismissing the keyboard when clicked.
+    * - Description: This view represents the clear button in the 
+    *                search bar. It is responsible for clearing the 
+    *                search text and dismissing the keyboard when 
+    *                clicked.
     * - Note: We can also use self.hideKeyboard()
     * - Remark: Clears the search field, hides the clear button, ends text focus, and forwards the callback
     * - Fixme: ⚠️️⚠️️ Make ClearButton style 👈👈 Ask CoPilot to make a draft

@@ -2,7 +2,12 @@ import SwiftUI
 import HybridColor
 /**
  * Preview
- * - Description: This section provides a preview of the SearchBar component. It sets up a SearchBar with placeholder text, focus handling, and text change handling. The SearchBar is displayed in a dark color scheme and its layout varies depending on the device type (mac, pad, or phone).
+ * - Description: This section provides a preview of the SearchBar 
+ *                component. It sets up a SearchBar with placeholder 
+ *                text, focus handling, and text change handling. The 
+ *                SearchBar is displayed in a dark color scheme and its 
+ *                layout varies depending on the device type (mac, pad, 
+ *                or phone).
  * - Note: We keep this in interfacelib since AF-extension and APP uses it
  * - Fixme: ⚠️️ Add debug view with state etc? 👈 yes please
  * - Fixme: ⚠️️ Add clause for iPad preview

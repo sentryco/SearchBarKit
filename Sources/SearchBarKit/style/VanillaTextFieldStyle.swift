@@ -1,7 +1,11 @@
 import SwiftUI
 /**
  * Disables uneccesary / annoying textfield features
- * - Description: This style removes default text field behaviors such as autocorrection, autocapitalization, and keyboard suggestions to provide a cleaner and more controlled text input experience.
+ * - Description: This style removes default text field 
+ *                behaviors such as autocorrection, 
+ *                autocapitalization, and keyboard suggestions 
+ *                to provide a cleaner and more controlled 
+ *                text input experience.
  * - Note: Alternate name: `CleanTextField`
  */
 fileprivate struct VanillaTextFieldStyle: TextFieldStyle {

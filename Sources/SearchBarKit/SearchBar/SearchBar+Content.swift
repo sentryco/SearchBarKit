@@ -6,8 +6,11 @@ import HybridColor
 extension SearchBar {
    /**
     * Body
-    * - Description: This view represents the body of the SearchBar, containing the search text field and the clear button.
-    * - Note: We can also do this with rebinding: https://stackoverflow.com/a/57875903/5389500
+    * - Description: This view represents the body of the SearchBar, 
+    *                containing the search text field and the clear 
+    *                button.
+    * - Note: We can also do this with rebinding: 
+    *         https://stackoverflow.com/a/57875903/5389500
     * - Fixme: ⚠️️ We should probably just use a VStack where searchTextField expands to near the clearButton etc, try width: infinity etc
     * - Fixme: ⚠️️ figure out a better way to do this without ZStack etc
     */

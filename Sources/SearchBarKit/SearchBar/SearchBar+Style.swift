@@ -5,8 +5,11 @@ import SwiftUI
 extension SearchBar {
    /**
     * Defines the style for the search bar.
-    * - Description: This typealias defines a style for the SearchBar. It includes properties for the background color, border color, and border width of the SearchBar.
-    * - Remark: Represents the background color, border color, and border width for the search bar button.
+    * - Description: This typealias defines a style for the SearchBar. 
+    *                It includes properties for the background color, 
+    *                border color, and border width of the SearchBar.
+    * - Remark: Represents the background color, border color, and 
+    *          border width for the search bar button.
     * - Fixme: ⚠️️⚠️️⚠️️ Consider using a struct instead of a typealias for better readability and maintainability.
     */
    internal typealias Style = (
@@ -16,8 +19,12 @@ extension SearchBar {
    )
    /**
     * Style for the SearchBar
-    * - Description: This function returns the style for the SearchBar based on its focus state. If the SearchBar is focused, it returns the active background style; otherwise, it returns the default background style.
-    * - Remark: Defines the background color, border color, and border width for the search bar.
+    * - Description: This function returns the style for the SearchBar 
+    *                based on its focus state. If the SearchBar is 
+    *                focused, it returns the active background style; 
+    *                otherwise, it returns the default background style.
+    * - Remark: Defines the background color, border color, and border 
+    *          width for the search bar.
     * - Fixme: ⚠️️ move this call into the scope of SearchBar.Style ?
     */
    internal static func getStyle(isFocused: Bool) -> SearchBar.Style {
@@ -30,9 +37,13 @@ extension SearchBar {
 extension SearchBar {
    /**
     * The style for the background view of the `SearchBarView`
-    * - Description: This style is applied to the search bar when it is not focused, providing a default visual appearance with a specified background color, border color, and border width.
+    * - Description: This style is applied to the search bar when 
+    *                it is not focused, providing a default visual 
+    *                appearance with a specified background color, 
+    *                border color, and border width.
     * - Note: the borderwidth of 0.5 makes it look sharper than 1.0
-    * - Remark: Represents the style for the background of the input-text-field (has rounded corners etc)
+    * - Remark: Represents the style for the background of the 
+    *          input-text-field (has rounded corners etc)
     */
    fileprivate static let inActiveBGStyle: SearchBar.Style = {
       (
@@ -44,8 +55,12 @@ extension SearchBar {
    }()
    /**
     * The active style for the background view of the `SearchBarView`
-    * - Description: This style is applied to the search bar when it is focused, providing a visual indication of its active state with a specified background color, border color, and border width.
-    * - Remark: Represents the active style for the background of the input-text-field (has rounded corners etc)
+    * - Description: This style is applied to the search bar when it 
+    *                is focused, providing a visual indication of its 
+    *                active state with a specified background color, 
+    *                border color, and border width.
+    * - Remark: Represents the active style for the background of the 
+    *          input-text-field (has rounded corners etc)
     */
    fileprivate static let activeBGStyle: SearchBar.Style = {
       (

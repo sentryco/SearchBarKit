@@ -29,10 +29,9 @@ SearchBar(
 
 ## Todo
 - Maybe not hide close button on focus loss?
-- Add github action 👈
-- Clean up comments with AI 👈
-- Add to main project (interfacelib?)
+- Add more comments with AI 
+- Remove unit test, add uitest
 
 ## Future improvments:
-- Add SearchBarIdentifier (injectable accessid) (for now these are hardcoded) 🚫
-- Move more metrics to const (later when it makes sense) 🚫
+- Add SearchBarIdentifier (injectable accessid) (for now these are hardcoded) 
+- Move more metrics to const (later when it makes sense) 

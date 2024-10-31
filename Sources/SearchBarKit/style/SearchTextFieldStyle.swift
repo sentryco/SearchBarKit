@@ -1,6 +1,10 @@
 import SwiftUI
 /**
- * - Description: A text field style tailored for search functionality, featuring a clear visual distinction when focused, and a rounded background that fits seamlessly within a search bar design.
+ * - Description: A text field style tailored for search 
+ *                functionality, featuring a clear visual 
+ *                distinction when focused, and a rounded 
+ *                background that fits seamlessly within a 
+ *                search bar design.
  * - Note: Used in SearchBar
  * - Fixme: ⚠️️ Tweak the corner radius somewhat
  */
@@ -10,8 +14,10 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
     */
    fileprivate var isFocused: FocusState<Bool>.Binding
    /**
-    * - Description: Constructs the visual representation of the text field, applying custom styling and layout modifications.
-    * - Fixme: ⚠️️ We can probably reuse, some general RoundedTextField style etc, see: RoundedBorderTextFieldStyle
+    * - Description: Constructs the visual representation of 
+    *                the text field, applying custom styling 
+    *                and layout modifications.
+    * - Fixme: ⚠️️ We can probably reuse, some general  RoundedTextField style etc, see: RoundedBorderTextFieldStyle
     * - Fixme: ⚠️️ Make text color more prominent when focused
     */
    fileprivate func _body(configuration: TextField<Self._Label>) -> some View {

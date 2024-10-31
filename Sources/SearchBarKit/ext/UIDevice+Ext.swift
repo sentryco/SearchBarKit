@@ -4,7 +4,10 @@ import UIKit
 #endif
 /**
  * Is or isn't iPad
- * - Description: This variable checks if the current device is an iPad. It returns true if the device is an iPad, and false otherwise. This is useful for adjusting UI or functionality based on the device type.
+ * - Description: This variable checks if the current device is an 
+ *                iPad. It returns true if the device is an iPad, and 
+ *                false otherwise. This is useful for adjusting UI 
+ *                or functionality based on the device type.
  */
 internal var isPadDevice: Bool {
    #if os(iOS) // Check if the target platform is iOS
@@ -13,4 +16,3 @@ internal var isPadDevice: Bool {
    return false // Return false as macOS is not an iPad
    #endif
 }
-

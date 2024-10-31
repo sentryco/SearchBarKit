@@ -72,7 +72,9 @@ extension SearchBarTheme {
    }()
    /**
     * Active Border Color
-    * This color is used for the border of active elements in the interface, providing a visual cue to the user.
+    * - Description: This color is used for the border of 
+    *               active elements in the interface, 
+    *               providing a visual cue to the user.
     */
    fileprivate static let activeBorder: Color = {
       .init(
