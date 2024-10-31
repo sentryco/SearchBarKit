@@ -26,6 +26,7 @@ SearchBar(
 ```
 
 ## Todo
+- Maybe not hide close button on focus loss?
 - Add github action 👈
 - Clean up comments with AI 👈
 - Add to main project (interfacelib?)
