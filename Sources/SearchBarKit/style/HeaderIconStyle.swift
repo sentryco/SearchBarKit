@@ -11,46 +11,46 @@ import HybridColor
  * ## Examples:
  * IconButtonStyle(strokeColor, backgroundColor, iconColor, size, iconSize)
  */
-struct HeaderIconStyle: ButtonStyle {
+fileprivate struct HeaderIconStyle: ButtonStyle {
    /**
     * Icon name
     * - Description: The name of the icon to be displayed on the button.
     */
-   let iconName: String
+   fileprivate let iconName: String
    /**
     * Icon size
     * - Description: The size of the icon to be displayed on the button.
     */
-   let iconSize: CGFloat
+   fileprivate let iconSize: CGFloat
    /**
     * Icon color
     * - Description: The color of the icon to be displayed on the button.
     */
-   let iconColor: Color
+   fileprivate let iconColor: Color
    /**
     * Background color
     * - Description: The background color of the button.
     */
-   let backgroundColor: Color
+   fileprivate let backgroundColor: Color
    /**
     * Stroke color
     * - Description: The color of the stroke around the icon.
     */
-   let strokeColor: Color
+   fileprivate let strokeColor: Color
    /**
     * Stroke width
     * - Description: The width of the stroke around the icon.
     */
-   let strokeWidth: CGFloat
+   fileprivate let strokeWidth: CGFloat
    /**
     * Padding
     * - Description: The padding around the button.
     */
-   let padding: CGFloat
+   fileprivate let padding: CGFloat
    /**
     * body
     */
-   func makeBody(configuration: Configuration) -> some View {
+   fileprivate func makeBody(configuration: Configuration) -> some View {
       configuration.label // The label of the button
          .headerIconViewModifier( // Applies the headerIconViewModifier to the label
             iconName: iconName, // The name of the icon to be displayed on the button
@@ -83,7 +83,7 @@ extension Button {
     * - Fixme: ⚠️️ Add description to this style
     * - Fixme: ⚠️️ Add doc regarding where this is used etc
     */
-   public func headerIconStyle(iconName: String, iconSize: CGFloat = 16, padding: CGFloat = 16/*Measure.margin*/, iconColor: Color = Color.whiteOrBlack, backgroundColor: Color = Color(light: .lightGray, dark: .darkGray).opacity(0.2), strokeColor: Color = Color.whiteOrBlack.opacity(0.5), strokeWidth: CGFloat = 1) -> some View {
+   internal func headerIconStyle(iconName: String, iconSize: CGFloat = 16, padding: CGFloat = 16/*Measure.margin*/, iconColor: Color = Color.whiteOrBlack, backgroundColor: Color = Color(light: .lightGray, dark: .darkGray).opacity(0.2), strokeColor: Color = Color.whiteOrBlack.opacity(0.5), strokeWidth: CGFloat = 1) -> some View {
       let buttonStyle: HeaderIconStyle = .init(
          iconName: iconName, // Sets the name of the icon to be displayed on the button
          iconSize: iconSize, // Sets the size of the icon to be displayed on the button

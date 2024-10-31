@@ -27,10 +27,15 @@ extension SearchBar {
     * Default closure for OnFocus.
     */
    public static let defaultOnFocus: OnFocus = { (_ isFocused: Bool) in Swift.print("isfocused: \(isFocused)") }
+}
+/**
+ * Colors
+ */
+extension SearchBar {
    /**
     * - Fixme: ⚠️️ move to somewhere else
     */
-   public static let iconColor: Color = {
+   internal static let iconColor: Color = {
       .init(
          light: Color(hex: 0x222222) // The background color for light mode
             .opacity(0.6),
@@ -41,7 +46,7 @@ extension SearchBar {
    /**
     * - Fixme: ⚠️️ move somewhere else
     */
-   public static let textColor: Color = { // Secondary label color
+   internal static let textColor: Color = { // Secondary label color
       #if os(macOS)
       return Color(NSColor.secondaryLabelColor)
       #elseif os(iOS)
@@ -51,7 +56,7 @@ extension SearchBar {
    /**
     * Active
     */
-   public static let activeBG: Color = {
+   internal static let activeBG: Color = {
       let light = Color.white //.init(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) // - Fixme: ⚠️️ describe the setup of this color?
       #if os(iOS)
       let dark = Color.darkGray.opacity(0.5)
@@ -69,7 +74,7 @@ extension SearchBar {
     * Active Border Color
     * This color is used for the border of active elements in the interface, providing a visual cue to the user.
     */
-   public static let activeBorder: Color = {
+   internal static let activeBorder: Color = {
       .init(
          light: Color.black.opacity(0.6),
          dark: Color.white.opacity(0.6)
@@ -79,7 +84,7 @@ extension SearchBar {
     * Idle
     * - Note: Alt name: `inActiveBG`
     */
-   public static let background: Color = {
+   internal static let background: Color = {
       let light = Color.white // .init(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) // - Fixme: ⚠️️ describe the setup of this color?
       #if os(iOS)
       let dark = Color.darkGray.opacity(0.3)
@@ -96,7 +101,7 @@ extension SearchBar {
    /**
     * Border
     */
-   public static let borderColor: Color = {
+   internal static let borderColor: Color = {
       let light: Color = {
          #if os(iOS)
          Color.darkGray.opacity(1)
@@ -113,13 +118,17 @@ extension SearchBar {
       }()
       return .init(light: light, dark: dark)
    }()
-   // tertiary
-   public static let tertiary: Color = .init(
+   /**
+    * tertiary
+    */
+   internal static let tertiary: Color = .init(
       light: .init(uiColor: UIColor.lightGray.lighter(amount: 0.4)), // The tertiary color for light mode
       dark: .init(uiColor: #colorLiteral(red: 0.08450166136, green: 0.08400709182, blue: 0.08488682657, alpha: 1)) // The tertiary color for dark mode (it's not pure black)
    )
-   // quaternary
-   public static let quaternary: Color = .init(
+   /**
+    * quaternary
+    */
+   internal static let quaternary: Color = .init(
       light: .init(uiColor: #colorLiteral(red: 0.7583230138, green: 0.753816545, blue: 0.761787951, alpha: 1)), // The quaternary color for light mode
       dark: .init(uiColor: #colorLiteral(red: 0.168294251, green: 0.1673007905, blue: 0.1690624058, alpha: 1)) // The quaternary color for dark mode
    )

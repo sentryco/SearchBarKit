@@ -4,15 +4,17 @@ import SwiftUI
  * - Note: Used in SearchBar
  * - Fixme: ⚠️️ Tweak the corner radius somewhat
  */
-public struct SearchTextFieldStyle: TextFieldStyle {
-   // - Fixme: ⚠️️ this can probably just be a bool, as we dont set anything in this scope
-   var isFocused: FocusState<Bool>.Binding
+fileprivate struct SearchTextFieldStyle: TextFieldStyle {
+   /**
+    * - Fixme: ⚠️️ this can probably just be a bool, as we dont set anything in this scope
+    */
+   fileprivate var isFocused: FocusState<Bool>.Binding
    /**
     * - Description: Constructs the visual representation of the text field, applying custom styling and layout modifications.
     * - Fixme: ⚠️️ We can probably reuse, some general RoundedTextField style etc, see: RoundedBorderTextFieldStyle
     * - Fixme: ⚠️️ Make text color more prominent when focused
     */
-   public func _body(configuration: TextField<Self._Label>) -> some View {
+   fileprivate func _body(configuration: TextField<Self._Label>) -> some View {
       configuration
          #if os(macOS)
          .textFieldStyle(.plain) // ⚠️️ Removes the default macOS styling from a TextField, this will remove all styling, including padding and background color. You may need to add additional modifiers to achieve the desired look.
@@ -22,8 +24,8 @@ public struct SearchTextFieldStyle: TextFieldStyle {
       // - Fixme: ⚠️️ put the color into a const etc
          .foregroundColor(SearchBar.textColor/*Palette.Main.SearchBar.textColor*//*Color.whiteOrBlack.opacity(0.8)*/) // font color
       // - Fixme: ⚠️️ move to const
-         .padding(.vertical, 10/*Measure.halfPadding*/) // Applies padding to the text field with half of the default padding vertically and the default margin horizontally.
-         .padding(.horizontal, (12 + (12 * 2))/*Measure.defaultMargin*/) // offset for left and right icons in seachbar
+         .padding(.vertical, SearchBar.searchbarSizing.verticalPadding/*Measure.halfPadding*/) // Applies padding to the text field with half of the default padding vertically and the default margin horizontally.
+         .padding(.horizontal, (SearchBar.searchbarSizing.horizontalPadding + (12 * 2))/*Measure.defaultMargin*/) // offset for left and right icons in seachbar
          .background(
             backgroundView
          )
@@ -39,6 +41,7 @@ extension SearchTextFieldStyle {
     */
    fileprivate var backgroundView: some View {
       let style: SearchBar.Style = SearchBar.getStyle(isFocused: isFocused.wrappedValue)
+      // - Fixme: ⚠️️ move to const
       return RoundedRectangle(cornerRadius: 10 /*12*/) // Creates a rounded rectangle with a corner radius of 12 to be used as an overlay.
       /*Color.gray*/
          .stroke(style.borderColor, lineWidth: style.borderWidth) // Strokes the border of the rounded rectangle with a gray color and a line width of 1.0.
@@ -54,7 +57,7 @@ extension TextField {
     * - Parameter isFocused: A binding to a Boolean value that indicates whether the text field is currently focused.
     * - Returns: A view modifier that applies the search text field style to the TextField.
     */
-   public func searchTextFieldStyle(isFocused: FocusState<Bool>.Binding) -> some View {
+   internal func searchTextFieldStyle(isFocused: FocusState<Bool>.Binding) -> some View {
       let textFieldStyle = SearchTextFieldStyle(isFocused: isFocused)
       return self.textFieldStyle(textFieldStyle)
    }

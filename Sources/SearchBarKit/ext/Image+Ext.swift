@@ -16,7 +16,7 @@ extension Image {
     *   - color: The color to set the image to.
     * - Returns: The styled image.
     */
-   public func iconStyle(size: CGFloat, padding: CGFloat, color: Color = Color.whiteOrBlack.opacity(0.8)) -> some View {
+   internal func iconStyle(size: CGFloat, padding: CGFloat, color: Color = Color.whiteOrBlack.opacity(0.8)) -> some View {
       self
          .resizable() // Make the image resizable
          .aspectRatio(contentMode: .fit)  // Set the aspect ratio of the image to fit (// .fill .scaledToFit())
@@ -37,7 +37,7 @@ extension Image {
     *   .iconStyle(size: 16, padding: 0)
     * - Parameter optionalSystemName: The optional system name of the image to be initialized.
     */
-   public init?(optionalSystemName: String?) {
+   internal init?(optionalSystemName: String?) {
       if let systemName: String = optionalSystemName {
          self.init(systemName: systemName)
       } else {
