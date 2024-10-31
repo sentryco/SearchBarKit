@@ -118,6 +118,7 @@ extension SearchBarTheme {
       }()
       return .init(light: light, dark: dark)
    }()
+   #if os(iOS)
    /**
     * tertiary
     */
@@ -132,4 +133,15 @@ extension SearchBarTheme {
       light: .init(uiColor: #colorLiteral(red: 0.7583230138, green: 0.753816545, blue: 0.761787951, alpha: 1)), // The quaternary color for light mode
       dark: .init(uiColor: #colorLiteral(red: 0.168294251, green: 0.1673007905, blue: 0.1690624058, alpha: 1)) // The quaternary color for dark mode
    )
+   #elseif os(macOS)
+   // tertiary
+   fileprivate static let tertiary: Color = .init(
+      light: .init(nsColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)), // The tertiary color for light mode
+      dark: .init(nsColor: #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)) // The tertiary color for dark mode
+   )
+   fileprivate static let quaternary: Color = .init(
+      light: .init(nsColor: #colorLiteral(red: 0.7583230138, green: 0.753816545, blue: 0.761787951, alpha: 1)), // The quaternary color for light mode
+      dark: .init(nsColor: #colorLiteral(red: 0.168294251, green: 0.1673007905, blue: 0.1690624058, alpha: 1)) // The quaternary color for dark mode
+   )
+   #endif
 }
