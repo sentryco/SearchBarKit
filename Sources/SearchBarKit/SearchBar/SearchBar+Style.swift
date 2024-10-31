@@ -36,8 +36,8 @@ extension SearchBar {
     */
    fileprivate static let inActiveBGStyle: SearchBar.Style = {
       (
-         backgroundColor: background/*Palette.Main.SearchBar.background*/, // The background color of the search bar.
-         borderColor: borderColor/*Palette.Main.SearchBar.borderColor*/, // The border color of the search bar.
+         backgroundColor: SearchBar.searchBarTheme.background/*Palette.Main.SearchBar.background*/, // The background color of the search bar.
+         borderColor: SearchBar.searchBarTheme.borderColor/*Palette.Main.SearchBar.borderColor*/, // The border color of the search bar.
          borderWidth: 0.5 // The width of the border of the search bar.
          // cornerRadius: SearchBarView.height / 6 // The corner radius of the search bar.
       )
@@ -49,8 +49,8 @@ extension SearchBar {
     */
    fileprivate static let activeBGStyle: SearchBar.Style = {
       (
-         backgroundColor: activeBG/*Palette.Main.SearchBar.activeBG*/, // The background color of the search bar when active.
-         borderColor: activeBorder/*Palette.Main.SearchBar.activeBorder*/, // The border color of the search bar.
+         backgroundColor: SearchBar.searchBarTheme.activeBG/*Palette.Main.SearchBar.activeBG*/, // The background color of the search bar when active.
+         borderColor: SearchBar.searchBarTheme.activeBorder/*Palette.Main.SearchBar.activeBorder*/, // The border color of the search bar.
          borderWidth: inActiveBGStyle.borderWidth // The width of the border of the search bar.
          // cornerRadius: backgroundStyle.cornerRadius // The corner radius of the search bar.
       )

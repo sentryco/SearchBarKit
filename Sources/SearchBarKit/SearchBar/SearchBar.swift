@@ -43,25 +43,31 @@ public struct SearchBar: View {
    @FocusState internal var textFieldIsFocused: Bool
    /**
     * - Fixme: ⚠️️ Add doc
-    * - Fixme: ⚠️️ rename to sizing
+    * - Fixme: ⚠️️ rename to sizing?
     */
    internal static var searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing
    /**
+    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ rename to theme?
+    */
+   internal static var searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme
+   /**
     * Initializes a SearchBar with the specified parameters.
     * - Description: Initializes a `SearchBar` with a specific placeholder text, focus callback, and text change callback. The placeholder text is displayed when the search bar is empty. The focus callback is invoked when the search bar gains or loses focus, and the text change callback is invoked when the text in the search bar changes.
-    * - Fixme: ⚠️️ move the placeholderText into const Title.searchText
-    * - Fixme: ⚠️️ localize the placeholder text, see legacy
+    * - Fixme: ⚠️️ Move the placeholderText into const Title.searchText
+    * - Fixme: ⚠️️ Localize the placeholder text, see legacy
     * - Parameters:
     *   - placeholderText: The placeholder text for the search bar.
     *   - onFocus: The callback to execute when the search bar gains focus.
     *   - onTextChange: The callback to execute when the text in the search bar changes.
     */
-   public init(placeholderText: String = "Search..", searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, onFocus: @escaping OnFocus = defaultOnFocus, onTextChange: @escaping OnTextChange = defaultOnTextChange) {
+   public init(placeholderText: String = "Search..", searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme, onFocus: @escaping OnFocus = defaultOnFocus, onTextChange: @escaping OnTextChange = defaultOnTextChange) {
       self.placeholderText = placeholderText
       self.onFocus = onFocus
       self.onTextChange = onTextChange
       self.searchText = searchText
       self.textFieldIsFocused = textFieldIsFocused
       Self.searchbarSizing = searchbarSizing
+      Self.searchBarTheme = searchBarTheme
    }
 }

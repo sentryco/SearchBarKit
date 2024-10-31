@@ -15,7 +15,7 @@ extension SearchBar {
             // - Fixme: ⚠️️ consider adding to const
             size: 18,
             padding: SearchBar.searchbarSizing.leftIconHorizontalPadding/*Measure.defaultMargin*/,
-            color: SearchBar.iconColor/*Palette.Main.SearchBar.icon*/ // Color.whiteOrBlack.opacity(0.5)
+            color: SearchBar.searchBarTheme.iconColor/*Palette.Main.SearchBar.icon*/ // Color.whiteOrBlack.opacity(0.5)
          )
    }
    /**
@@ -73,7 +73,7 @@ extension SearchBar {
          iconSize: 10, // Sets the icon size to 10
          // - Fixme: ⚠️️ move bellow to const
          padding: SearchBar.searchbarSizing.clearButtonPadding /*Measure.defaultMargin*/, // Applies default margin padding
-         iconColor: SearchBar.textColor/*Palette.Main.SearchBar.textColor*/ /*Color.whiteOrBlack.opacity(0.5)*/, // Sets icon color to white or black with 50% opacity
+         iconColor: SearchBar.searchBarTheme.textColor/*Palette.Main.SearchBar.textColor*/ /*Color.whiteOrBlack.opacity(0.5)*/, // Sets icon color to white or black with 50% opacity
          backgroundColor: Color.whiteOrBlack.opacity(0.2), // Sets background color to white or black with 20% opacity
          strokeColor: .gray.opacity(0.0) // Sets stroke color to gray with 0% opacity
       )

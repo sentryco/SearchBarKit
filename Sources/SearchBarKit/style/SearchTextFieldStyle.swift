@@ -22,7 +22,7 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
          .vanillaTextFieldStyle // Adds the modifiers that disable some default keyboard things we don't need, see password input field etc
          .font(.title3) // Sets the font style to title3 (similar to .label)
       // - Fixme: ⚠️️ put the color into a const etc
-         .foregroundColor(SearchBar.textColor/*Palette.Main.SearchBar.textColor*//*Color.whiteOrBlack.opacity(0.8)*/) // font color
+         .foregroundColor(SearchBar.searchBarTheme.textColor/*Palette.Main.SearchBar.textColor*//*Color.whiteOrBlack.opacity(0.8)*/) // font color
       // - Fixme: ⚠️️ move to const
          .padding(.vertical, SearchBar.searchbarSizing.verticalPadding/*Measure.halfPadding*/) // Applies padding to the text field with half of the default padding vertically and the default margin horizontally.
          .padding(.horizontal, (SearchBar.searchbarSizing.horizontalPadding + (12 * 2))/*Measure.defaultMargin*/) // offset for left and right icons in seachbar
@@ -42,7 +42,7 @@ extension SearchTextFieldStyle {
    fileprivate var backgroundView: some View {
       let style: SearchBar.Style = SearchBar.getStyle(isFocused: isFocused.wrappedValue)
       // - Fixme: ⚠️️ move to const
-      return RoundedRectangle(cornerRadius: 10 /*12*/) // Creates a rounded rectangle with a corner radius of 12 to be used as an overlay.
+      return RoundedRectangle(cornerRadius: 10) // Creates a rounded rectangle with a corner radius of 12 to be used as an overlay.
       /*Color.gray*/
          .stroke(style.borderColor, lineWidth: style.borderWidth) // Strokes the border of the rounded rectangle with a gray color and a line width of 1.0.
          .fill(style.backgroundColor)

@@ -1,8 +1,13 @@
 # SearchBarKit
 
-> Sleek searchbar for iPad and macOS
+> Sleek searchbar for iOS and macOS
 
 ## Features
+
+- Focus triggers callback and receeded look and feel
+- Text change triggers callback
+- Customizable sizing and color theme (via struct injection)
+- Works for iOS and macOS
 
 ## Example
 
@@ -18,7 +23,7 @@ SearchBar(
 ```
 
 ## Todo
-- Add SearchBarPallet (injectable color) 👈
+- Add SearchBarPallet (injectable color) 👈🏀
 - Add SearchBarIdentifier (injectable accessid) 👈
 - Make a gif
 - Improve readme
