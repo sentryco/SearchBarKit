@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/SearchBarKit/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/SearchBarKit/actions/workflows/Tests.yml)
+
 # SearchBarKit
 
 > Sleek searchbar for iOS and macOS
