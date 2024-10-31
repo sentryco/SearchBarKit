@@ -2,12 +2,15 @@
 
 > Sleek searchbar for iOS and macOS
 
+<img width="388" alt="img" src="https://s11.gifyu.com/images/SOOPE.gif">
+
 ## Features
 
 - Focus triggers callback and receeded look and feel
 - Text change triggers callback
 - Customizable sizing and color theme (via struct injection)
 - Works for iOS and macOS
+- Dark / light mode
 
 ## Example
 
@@ -23,11 +26,10 @@ SearchBar(
 ```
 
 ## Todo
-- Add SearchBarPallet (injectable color) 👈🏀
-- Add SearchBarIdentifier (injectable accessid) 👈
-- Make a gif
-- Improve readme
-- Add github action
-- Clean up comments
+- Add github action 👈
+- Clean up comments with AI 👈
 - Add to main project (interfacelib?)
-- Move more metrics to const
+
+## Future improvments:
+- Add SearchBarIdentifier (injectable accessid) (for now these are hardcoded) 🚫
+- Move more metrics to const (later when it makes sense) 🚫
