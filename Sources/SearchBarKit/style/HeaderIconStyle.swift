@@ -64,7 +64,8 @@ fileprivate struct HeaderIconStyle: ButtonStyle {
    }
 }
 /**
- * - Note: Add extension ButtonStyle where Self == HeaderIconStyle later if we need to store the style for switching etc
+ * - Note: Add extension `ButtonStyle where Self == HeaderIconStyle` 
+ *         later if we need to store the style for switching etc
  */
 extension Button {
    /**
