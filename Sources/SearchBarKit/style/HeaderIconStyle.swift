@@ -82,7 +82,7 @@ extension Button {
     * - Fixme: ⚠️️ Make this as a view modifier as well?
     * - Fixme: ⚠️️ Move default vals into const
     * - Fixme: ⚠️️ Add description to this style
-    * - Fixme: ⚠️️ Add doc regarding where this is used etc
+    * - Fixme: ⚠️️ Add info regarding where this is used etc
     */
    internal func headerIconStyle(iconName: String, iconSize: CGFloat = 16, padding: CGFloat = 16/*Measure.margin*/, iconColor: Color = Color.whiteOrBlack, backgroundColor: Color = Color(light: .lightGray, dark: .darkGray).opacity(0.2), strokeColor: Color = Color.whiteOrBlack.opacity(0.5), strokeWidth: CGFloat = 1) -> some View {
       let buttonStyle: HeaderIconStyle = .init(

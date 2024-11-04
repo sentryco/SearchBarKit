@@ -56,12 +56,18 @@ public struct SearchBar: View {
     */
    @FocusState internal var textFieldIsFocused: Bool
    /**
-    * - Fixme: ⚠️️ Add doc
+    * Sizing configuration for the search bar.
+    * - Description: This property holds the sizing configuration for the search bar,
+    *                which determines the dimensions and layout of the search bar.
+    *                It can be customized to fit different design requirements.
     * - Fixme: ⚠️️ rename to sizing?
     */
    internal static var searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing
    /**
-    * - Fixme: ⚠️️ add doc
+    * Theme configuration for the search bar.
+    * - Description: This property holds the theme configuration for the search bar,
+    *                which determines the appearance and style of the search bar.
+    *                It can be customized to fit different design requirements.
     * - Fixme: ⚠️️ rename to theme?
     */
    internal static var searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme

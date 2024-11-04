@@ -1,7 +1,10 @@
 import SwiftUI
 import HybridColor
 /**
- * - Fixme: ⚠️️ add doc
+ * Theme configuration for the search bar.
+ * - Description: This struct holds the theme configuration for the search bar,
+ *                which determines the appearance and style of the search bar.
+ *                It can be customized to fit different design requirements.
  */
 public struct SearchBarTheme {
    let iconColor: Color
@@ -16,7 +19,7 @@ public struct SearchBarTheme {
  */
 extension SearchBarTheme {
    /**
-    * - Fixme: ⚠️️ add doc
+    * Default theme configuration for the search bar.
     */
    public static var defaultTheme: SearchBarTheme {
       .init(iconColor: Self.iconColor,
