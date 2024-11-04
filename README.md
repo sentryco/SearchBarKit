@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/SearchBarKit/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/SearchBarKit/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/80a82bb4-248f-44e1-9117-b780cddbc8e6)](https://codebeat.co/projects/github-com-sentryco-searchbarkit-main)
 
 # SearchBarKit
 
