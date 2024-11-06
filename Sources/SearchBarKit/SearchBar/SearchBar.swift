@@ -62,7 +62,7 @@ public struct SearchBar: View {
     *                It can be customized to fit different design requirements.
     * - Fixme: ⚠️️ rename to sizing?
     */
-   internal static var searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing
+   internal static var searchbarSizing = SearchBarSizing.defaultSizing
    /**
     * Theme configuration for the search bar.
     * - Description: This property holds the theme configuration for the search bar,
@@ -70,7 +70,7 @@ public struct SearchBar: View {
     *                It can be customized to fit different design requirements.
     * - Fixme: ⚠️️ rename to theme?
     */
-   internal static var searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme
+   internal static var searchBarTheme = SearchBarTheme.defaultTheme
    /**
     * Initializes a SearchBar with the specified parameters.
     * - Description: Initializes a `SearchBar` with a specific placeholder 

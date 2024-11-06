@@ -10,16 +10,16 @@ let package = Package(
     products: [
         .library(
             name: "SearchBarKit",
-            targets: ["SearchBarKit"]),
+            targets: ["SearchBarKit"])
     ],
     dependencies: [
-      .package(url: "https://github.com/sentryco/HybridColor", branch: "main"),
+      .package(url: "https://github.com/sentryco/HybridColor", branch: "main")
     ],
     targets: [
       .target(
          name: "SearchBarKit",
          dependencies: [
-            .product(name: "HybridColor", package: "HybridColor"),
+            .product(name: "HybridColor", package: "HybridColor")
          ]),
       .testTarget(
          name: "SearchBarKitTests",
