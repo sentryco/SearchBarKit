@@ -148,14 +148,13 @@ extension View {
       EmptyView()
          .headerIconViewModifier(
             iconName: "heart",
-            iconSize: 24/*Measure.icnSize*/,
+            iconSize: 24,
             padding: 30,
             iconColor: .whiteOrBlack.opacity(0.8),
             backgroundColor: .whiteOrBlack.opacity(0.2),
             strokeColor: .whiteOrBlack.opacity(0.4),
             strokeWidth: 2
          )
-         // .padding(0) // .frame(width: 44, height: 44)
          .padding(.vertical)
          .frame(maxWidth: .infinity)
          .background(Color.blackOrWhite)

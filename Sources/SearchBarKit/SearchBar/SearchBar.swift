@@ -8,8 +8,8 @@ import SwiftUI
  *                and focus events. The component is designed to integrate
  *                seamlessly with SwiftUI views and provides a customizable
  *                and interactive search experience.
- * - Fixme: ⚠️️⚠️️ the `onTextChange` should probably just be a 👉 binding 👈, so maybe remove that? fix it later when transfereing code and comments from legacy etc
- * - Fixme: ⚠️️⚠️️ make `onFocus` a binding instead? 👈 fix it later when transfering code and comments from legacy etc
+ * - Fixme: ⚠️️⚠️️ The `onTextChange` should probably just be a 👉 binding 👈, so maybe remove that? fix it later when transfereing code and comments from legacy etc
+ * - Fixme: ⚠️️⚠️️ Make `onFocus` a binding instead? 👈 fix it later when transfering code and comments from legacy etc
  * - Fixme: ⚠️️ Possibly customize `NSSearchField` in the future etc (less custom code etc, do it when migrating to SwiftUI / Catalyst)
  */
 public struct SearchBar: View {
@@ -23,7 +23,7 @@ public struct SearchBar: View {
     * - Description: The callback function that is invoked when the 
     *                search bar either gains or loses focus, allowing 
     *                the parent view to react to focus changes.
-    * - Fixme: ⚠️️ make this a binding or remove? or use textFieldIsFocused?
+    * - Fixme: ⚠️️ Make this a binding or remove? or use textFieldIsFocused?
     * - Parameters:
     *   - isFocused: A boolean indicating whether the search bar is now focused.
     */

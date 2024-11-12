@@ -25,7 +25,7 @@ extension SearchBar {
     *                otherwise, it returns the default background style.
     * - Remark: Defines the background color, border color, and border 
     *          width for the search bar.
-    * - Fixme: ⚠️️ move this call into the scope of SearchBar.Style ?
+    * - Fixme: ⚠️️ Move this call into the scope of SearchBar.Style ?
     */
    internal static func getStyle(isFocused: Bool) -> SearchBar.Style {
       isFocused ? activeBGStyle : inActiveBGStyle

@@ -66,9 +66,9 @@ extension SearchBar {
     * - Fixme: ⚠️️⚠️️ Make ClearButton style 👈👈 Ask CoPilot to make a draft
     * - Fixme: ⚠️️ Move the onClear to a method? or better move it to a modifier, see pin for how, hold off on that, still relevant?
     * - Fixme: ⚠️️ Or make a binding to searchMode 👈👈 wait until things are more settled, transfer code from legacy etc
-    * - Fixme: ⚠️️ move iconName, iconSize to const
-    * - Fixme: ⚠️️ also pull colors from pallet later etc
-    * - Fixme: ⚠️️ use accessId? there is a ZStack in the style
+    * - Fixme: ⚠️️ Move iconName, iconSize to const
+    * - Fixme: ⚠️️ Also pull colors from pallet later etc
+    * - Fixme: ⚠️️ Use accessId? there is a ZStack in the style
     */
    internal var clearButton: some View {
       Button(action: {

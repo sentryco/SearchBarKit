@@ -5,14 +5,15 @@ import HybridColor
  * - Description: This struct holds the theme configuration for the search bar,
  *                which determines the appearance and style of the search bar.
  *                It can be customized to fit different design requirements.
+ * - Fixme: ⚠️️ probably add a public init here?
  */
 public struct SearchBarTheme {
-   let iconColor: Color
-   let textColor: Color
-   let activeBG: Color
-   let activeBorder: Color
-   let background: Color
-   let borderColor: Color
+   internal let iconColor: Color
+   internal let textColor: Color
+   internal let activeBG: Color
+   internal let activeBorder: Color
+   internal let background: Color
+   internal let borderColor: Color
 }
 /**
  * Const

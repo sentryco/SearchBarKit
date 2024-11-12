@@ -35,6 +35,9 @@ Add to your project using Swift Package Manager by adding the following URL:
 .package(url: "https://github.com/sentryco/SearchBarKit", branch: "main")
 ```   
 
+## Dependencies:
+- [HybridColor](https://github.com/sentryco/HybridColor)
+
 ## Todo
 - Maybe not hide close button on focus loss?
 - Add more comments with AI 

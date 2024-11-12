@@ -10,14 +10,14 @@ import SwiftUI
  */
 fileprivate struct SearchTextFieldStyle: TextFieldStyle {
    /**
-    * - Fixme: ⚠️️ this can probably just be a bool, as we dont set anything in this scope
+    * - Fixme: ⚠️️ This can probably just be a bool, as we dont set anything in this scope
     */
    fileprivate var isFocused: FocusState<Bool>.Binding
    /**
     * - Description: Constructs the visual representation of 
     *                the text field, applying custom styling 
     *                and layout modifications.
-    * - Fixme: ⚠️️ We can probably reuse, some general  RoundedTextField style etc, see: RoundedBorderTextFieldStyle
+    * - Fixme: ⚠️️ We can probably reuse, some general RoundedTextField style etc, see: RoundedBorderTextFieldStyle
     * - Fixme: ⚠️️ Make text color more prominent when focused
     */
    fileprivate func _body(configuration: TextField<Self._Label>) -> some View {
@@ -28,10 +28,10 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
          .vanillaTextFieldStyle // Adds the modifiers that disable some default keyboard things we don't need, see password input field etc
          .font(.title3) // Sets the font style to title3 (similar to .label)
       // - Fixme: ⚠️️ put the color into a const etc
-         .foregroundColor(SearchBar.searchBarTheme.textColor/*Palette.Main.SearchBar.textColor*//*Color.whiteOrBlack.opacity(0.8)*/) // font color
+         .foregroundColor(SearchBar.searchBarTheme.textColor) // font color
       // - Fixme: ⚠️️ move to const
-         .padding(.vertical, SearchBar.searchbarSizing.verticalPadding/*Measure.halfPadding*/) // Applies padding to the text field with half of the default padding vertically and the default margin horizontally.
-         .padding(.horizontal, (SearchBar.searchbarSizing.horizontalPadding + (12 * 2))/*Measure.defaultMargin*/) // offset for left and right icons in seachbar
+         .padding(.vertical, SearchBar.searchbarSizing.verticalPadding) // Applies padding to the text field with half of the default padding vertically and the default margin horizontally.
+         .padding(.horizontal, (SearchBar.searchbarSizing.horizontalPadding + (12 * 2))) // offset for left and right icons in seachbar
          .background(
             backgroundView
          )

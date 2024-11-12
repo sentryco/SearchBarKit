@@ -2,7 +2,7 @@ import SwiftUI
 import HybridColor
 /**
  * Const
- * - Fixme: ⚠️️ deprecate these and use bindings and the @Focused prop etc? maybe later when we add code from legacy etc, this needs exploration before executing on it etc do some validating
+ * - Fixme: ⚠️️ Deprecate these and use bindings and the @Focused prop etc? maybe later when we add code from legacy etc, this needs exploration before executing on it etc do some validating
  */
 extension SearchBar {
    /**
@@ -16,7 +16,7 @@ extension SearchBar {
     */
    public typealias OnTextChange = (_ text: String) -> Void
    /**
-    * Default closure for OnTextChange.
+    * Default closure for `OnTextChange`
     */
    public static let defaultOnTextChange: OnTextChange = { (_ text: String) in Swift.print("on text change: \(text)") }
    /**
