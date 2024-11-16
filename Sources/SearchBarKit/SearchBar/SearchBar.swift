@@ -43,7 +43,7 @@ public struct SearchBar: View {
     * - Description: This property holds the current search text in the search bar.
     * - Fixme: ⚠️️ Make this a binding instead?
     */
-   @State internal var searchText: String = ""
+   @State internal var searchText: String
    /**
     * Tracks the focus state of the text field in the search bar.
     * - Description: This property tracks whether the text field in the 
@@ -81,17 +81,18 @@ public struct SearchBar: View {
     *                is invoked when the text in the search bar changes.
     * - Fixme: ⚠️️ Move the placeholderText into const Title.searchText
     * - Fixme: ⚠️️ Localize the placeholder text, see legacy
+    * - Fixme: ⚠️️ Figure out initing textFieldIsFocused from params
     * - Parameters:
     *   - placeholderText: The placeholder text for the search bar.
     *   - onFocus: The callback to execute when the search bar gains focus.
     *   - onTextChange: The callback to execute when the text in the search bar changes.
     */
-   public init(placeholderText: String = "Search..", searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme, onFocus: @escaping OnFocus = defaultOnFocus, onTextChange: @escaping OnTextChange = defaultOnTextChange) {
+   public init(placeholderText: String = "Search..", searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme, onFocus: @escaping OnFocus = defaultOnFocus, onTextChange: @escaping OnTextChange = defaultOnTextChange, /*textFieldIsFocused: Bool = true,*/ searchText: String = "") {
       self.placeholderText = placeholderText
       self.onFocus = onFocus
       self.onTextChange = onTextChange
-      self.searchText = searchText
-      self.textFieldIsFocused = textFieldIsFocused
+      self._searchText = .init(initialValue: searchText)
+      // self.textFieldIsFocused = textFieldIsFocused
       Self.searchbarSizing = searchbarSizing
       Self.searchBarTheme = searchBarTheme
    }

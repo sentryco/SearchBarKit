@@ -23,7 +23,8 @@ import HybridColor
          },
          onTextChange: { text in // Handles text changes in the SearchBar, printing the new text to the console.
             Swift.print("text: \(text)")
-         }
+         },
+         searchText: "Adobe" // Set inititial search-text
       )
       .padding()
       .background(Color.blackOrWhite) // .background(Color.tertiaryBackground)
