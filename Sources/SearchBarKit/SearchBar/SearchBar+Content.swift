@@ -27,5 +27,19 @@ extension SearchBar {
       .onChange(of: searchText) { // Listens for changes in searchText and calls onTextChange with the new text
          onTextChange(searchText) // Executes the onTextChange callback with the updated searchText
       }
+      .task { // more modern async
+         // Use a slight delay to ensure the view is fully loaded
+         if textFieldShouldFocusOnInit {
+            try? await Task.sleep(for: .milliseconds(100))
+            textFieldIsFocused = true
+         }
+      }
+//      .onAppear {
+//         if textFieldShouldFocusOnInit {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//               textFieldIsFocused = true
+//            }
+//         }
+//      }
    }
 }

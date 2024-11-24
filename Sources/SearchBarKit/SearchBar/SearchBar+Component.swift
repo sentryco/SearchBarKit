@@ -33,14 +33,17 @@ extension SearchBar {
     * - Fixme: ⚠️️ Call methods with this, put the methods in +Action file etc
     * - Fixme: ⚠️️ Move logic into modifiers, see `PinCode`, how it's done there etc? 👈 can searchbar be a style or a modifier etc?
     * - Fixme: ⚠️️ Take a look at the new `focusEffectDisabled`: https://stackoverflow.com/a/77681648/5389500 and https://stackoverflow.com/a/60286113/5389500
-    * - Fixme: ⚠️️ move the placeholder color to pallet
-    * - Fixme: ⚠️️ remove the TextField id. we set the real id later? make sure UITests keep running etc
+    * - Fixme: ⚠️️ Move the placeholder color to pallet
+    * - Fixme: ⚠️️ Remove the TextField id. we set the real id later? make sure UITests keep running etc
     */
    internal var searchTextField: some View {
       let placeholderTxt: Text = {
          let color: Color = .init(light: .gray, dark: .gray).opacity(0.8)
          return Text(placeholderText) // Customize placeholder text color
             .foregroundStyle(color)
+      }()
+      let _ = {
+         Swift.print("searchTextField - textFieldIsFocused:  \(textFieldIsFocused)")
       }()
       return TextField(
          "searchTextField"/*InterfaceID.searchTextField*/, /*"search_text_field"*/ // Sets the accessibility identifier for the text field
@@ -50,7 +53,7 @@ extension SearchBar {
       .searchTextFieldStyle(isFocused: $textFieldIsFocused) // Applies the search text field style
       .accessibilityIdentifier("searchTextField")
       // .accessIdentifier(InterfaceID.searchTextField) // Sets the accessibility identifier for the text field
-      .focused($textFieldIsFocused) // Sets the focus state of the text field
+//      .focused($textFieldIsFocused) // Sets the focus state of the text field
       .onChange(of: textFieldIsFocused) { _, _ in // Listens for changes in textFieldIsFocused
          onFocus(textFieldIsFocused) // Calls the onFocus callback with the updated focus state
       }

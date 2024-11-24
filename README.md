@@ -42,6 +42,7 @@ Add to your project using Swift Package Manager by adding the following URL:
 - Maybe not hide close button on focus loss?
 - Add more comments with AI 
 - Remove unit test, add uitest
+- It seems placeholder text-color for SearchBar text doesnt work for macOS. Try to fix it
 
 ## Future improvments:
 - Add SearchBarIdentifier (injectable accessid) (for now these are hardcoded) 

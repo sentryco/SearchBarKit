@@ -53,8 +53,10 @@ public struct SearchBar: View {
     * - Note: Ref: https://www.hackingwithswift.com/quick-start/swiftui/how-to-dismiss-the-keyboard-for-a-textfield
     * - Remark: Hides the clear button if not in "search-mode", sets the background style, and forwards the callback
     * - Remark: This highlights the text in the search bar and sets focus to the text field.
+    * - Fixme: ⚠️️ rename to isTextFieldFocused
     */
    @FocusState internal var textFieldIsFocused: Bool
+   // @Binding var textFieldIsFocused: FocusState<Bool>.Binding
    /**
     * Sizing configuration for the search bar.
     * - Description: This property holds the sizing configuration for the search bar,
@@ -72,6 +74,12 @@ public struct SearchBar: View {
     */
    internal static var searchBarTheme = SearchBarTheme.defaultTheme
    /**
+    * ⚠️️ Temp hack for now. Solve in a better way by injecting a binding or something. Check with copilot. or placing @FocusState in the caller, i guess keeping it here is better, and figuring out a way to inject it. but its not obvious how
+    * - Note: This will highlight the text on init, so that the user can type immidiatly
+    * - Fixme: ⚠️️ check the code in the PinView package, maybe it has better init focus code?
+    */
+   internal let textFieldShouldFocusOnInit: Bool
+   /**
     * Initializes a SearchBar with the specified parameters.
     * - Description: Initializes a `SearchBar` with a specific placeholder 
     *                text, focus callback, and text change callback. The 
@@ -82,17 +90,26 @@ public struct SearchBar: View {
     * - Fixme: ⚠️️ Move the placeholderText into const Title.searchText
     * - Fixme: ⚠️️ Localize the placeholder text, see legacy
     * - Fixme: ⚠️️ Figure out initing textFieldIsFocused from params
+    * - Fixme: ⚠️️ Clean up dead code
     * - Parameters:
     *   - placeholderText: The placeholder text for the search bar.
     *   - onFocus: The callback to execute when the search bar gains focus.
     *   - onTextChange: The callback to execute when the text in the search bar changes.
+    *   - searchbarSizing: - Fixme: ⚠️️ add doc
+    *   - searchBarTheme: - Fixme: ⚠️️ add doc
+    *   - textFieldIsFocused: - Fixme: ⚠️️ add doc
+    *   - searchText: - Fixme: ⚠️️ add doc
+    *   - textFieldShouldFocusOnInit: - Fixme: ⚠️️ add doc
     */
-   public init(placeholderText: String = "Search..", searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme, onFocus: @escaping OnFocus = defaultOnFocus, onTextChange: @escaping OnTextChange = defaultOnTextChange, /*textFieldIsFocused: Bool = true,*/ searchText: String = "") {
+   public init(placeholderText: String = "Search..", searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme, onFocus: @escaping OnFocus = defaultOnFocus, onTextChange: @escaping OnTextChange = defaultOnTextChange, /*textFieldIsFocused: FocusState<Bool>.Binding,*/ textFieldShouldFocusOnInit: Bool = false, searchText: String = "") {
       self.placeholderText = placeholderText
       self.onFocus = onFocus
       self.onTextChange = onTextChange
       self._searchText = .init(initialValue: searchText)
-      // self.textFieldIsFocused = textFieldIsFocused
+      self.textFieldShouldFocusOnInit = textFieldShouldFocusOnInit
+//      Swift.print("init - textFieldIsFocused:  \(textFieldIsFocused.wrappedValue)")
+//      self.textFieldIsFocused = textFieldIsFocused.wrappedValue // isFocused: FocusState<Bool>.Binding
+//      self._textFieldIsFocused = .constant(textFieldIsFocused)
       Self.searchbarSizing = searchbarSizing
       Self.searchBarTheme = searchBarTheme
    }
