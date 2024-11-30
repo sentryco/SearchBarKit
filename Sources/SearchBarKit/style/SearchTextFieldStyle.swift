@@ -21,9 +21,11 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
     * - Fixme: ⚠️️ Make text color more prominent when focused
     */
    fileprivate func _body(configuration: TextField<Self._Label>) -> some View {
+      #if debug
       let _ = {
          Swift.print("isFocused:  \(isFocused.wrappedValue)")
       }()
+      #endif
       configuration
          #if os(macOS)
          .textFieldStyle(.plain) // ⚠️️ Removes the default macOS styling from a TextField, this will remove all styling, including padding and background color. You may need to add additional modifiers to achieve the desired look.
@@ -68,9 +70,11 @@ extension TextField {
     * - Returns: A view modifier that applies the search text field style to the TextField.
     */
    internal func searchTextFieldStyle(isFocused: FocusState<Bool>.Binding) -> some View {
+      #if debug
       let _ = {
          Swift.print("searchTextFieldStyle - isFocused:  \(isFocused.wrappedValue)")
       }()
+      #endif
       let textFieldStyle = SearchTextFieldStyle(
          isFocused: isFocused // - Fixme: ⚠️️ doc this line
       )
@@ -79,6 +83,7 @@ extension TextField {
 }
 /**
  * Preview
+ * - Fixme: ⚠️️ use @Previewable here instead of bouilerplate debugview code
  */
 #Preview(traits: .fixedLayout(width: 340, height: 300)) {
    struct DebugView: View {

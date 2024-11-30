@@ -42,9 +42,11 @@ extension SearchBar {
          return Text(placeholderText) // Customize placeholder text color
             .foregroundStyle(color)
       }()
+      #if debug
       let _ = {
          Swift.print("searchTextField - textFieldIsFocused:  \(textFieldIsFocused)")
       }()
+      #endif
       return TextField(
          "searchTextField"/*InterfaceID.searchTextField*/, /*"search_text_field"*/ // Sets the accessibility identifier for the text field
          text: $searchText, // Binds the text field to the searchText state
