@@ -70,6 +70,7 @@ fileprivate struct HeaderIconStyle: ButtonStyle {
 extension Button {
    /**
     * Applies the header icon style to the button.
+    * - Description: This method applies a header icon style to a button, allowing customization of the icon's appearance, including its size, color, and stroke. It also provides options for padding and background color, making it versatile for different UI designs.
     * - Parameters:
     *   - iconName: The name of the icon to be displayed on the button.
     *   - iconSize: The size of the icon to be displayed on the button. Defaults to 16.
@@ -81,7 +82,6 @@ extension Button {
     * - Fixme: ⚠️️ Move color consts to pallet?
     * - Fixme: ⚠️️ Make this as a view modifier as well?
     * - Fixme: ⚠️️ Move default vals into const
-    * - Fixme: ⚠️️ Add description to this style
     * - Fixme: ⚠️️ Add info regarding where this is used etc
     */
    internal func headerIconStyle(iconName: String, iconSize: CGFloat = 16, padding: CGFloat = 16/*Measure.margin*/, iconColor: Color = Color.whiteOrBlack, backgroundColor: Color = Color(light: .lightGray, dark: .darkGray).opacity(0.2), strokeColor: Color = Color.whiteOrBlack.opacity(0.5), strokeWidth: CGFloat = 1) -> some View {

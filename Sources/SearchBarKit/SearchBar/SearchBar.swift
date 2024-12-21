@@ -95,11 +95,10 @@ public struct SearchBar: View {
     *   - placeholderText: The placeholder text for the search bar.
     *   - onFocus: The callback to execute when the search bar gains focus.
     *   - onTextChange: The callback to execute when the text in the search bar changes.
-    *   - searchbarSizing: - Fixme: ⚠️️ add doc
-    *   - searchBarTheme: - Fixme: ⚠️️ add doc
-    *   - textFieldIsFocused: - Fixme: ⚠️️ add doc
-    *   - searchText: - Fixme: ⚠️️ add doc
-    *   - textFieldShouldFocusOnInit: - Fixme: ⚠️️ add doc
+    *   - searchbarSizing: The sizing configuration for the search bar.
+    *   - searchBarTheme: The theme configuration for the search bar.
+    *   - textFieldShouldFocusOnInit: A boolean value indicating whether the text field should automatically gain focus when the search bar is initialized.
+    *   - searchText: The current text in the search bar.
     */
    public init(placeholderText: String = "Search..", searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme, onFocus: @escaping OnFocus = defaultOnFocus, onTextChange: @escaping OnTextChange = defaultOnTextChange, /*textFieldIsFocused: FocusState<Bool>.Binding,*/ textFieldShouldFocusOnInit: Bool = false, searchText: String = "") {
       self.placeholderText = placeholderText
