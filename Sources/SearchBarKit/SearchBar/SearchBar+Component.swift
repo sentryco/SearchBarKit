@@ -30,11 +30,12 @@ extension SearchBar {
               field to gain or lose focus programmatically, which is 
               essential for managing the user's interaction with the 
               search bar.
-    * - Fixme: ⚠️️ Call methods with this, put the methods in +Action file etc
     * - Fixme: ⚠️️ Move logic into modifiers, see `PinCode`, how it's done there etc? 👈 can searchbar be a style or a modifier etc?
     * - Fixme: ⚠️️ Take a look at the new `focusEffectDisabled`: https://stackoverflow.com/a/77681648/5389500 and https://stackoverflow.com/a/60286113/5389500
-    * - Fixme: ⚠️️ Move the placeholder color to pallet
+    * - Fixme: ⚠️️ Move the placeholder color to pallet 🏀
     * - Fixme: ⚠️️ Remove the TextField id. we set the real id later? make sure UITests keep running etc
+    * - Fixme: ⚠️️ move foregroundStyle to ViewModififier that we apply to entire SearchBarView? decouled styling?
+    * - Fixme: ⚠️️ does the placeholder text work? confirm this
     */
    internal var searchTextField: some View {
       let placeholderTxt: Text = {
@@ -42,20 +43,13 @@ extension SearchBar {
          return Text(placeholderText) // Customize placeholder text color
             .foregroundStyle(color)
       }()
-      #if debug
-      let _ = {
-         Swift.print("searchTextField - textFieldIsFocused:  \(textFieldIsFocused)")
-      }()
-      #endif
       return TextField(
-         "searchTextField"/*InterfaceID.searchTextField*/, /*"search_text_field"*/ // Sets the accessibility identifier for the text field
+         "searchTextField", // Sets the accessibility identifier for the text field
          text: $searchText, // Binds the text field to the searchText state
          prompt: placeholderTxt // Sets the placeholder text for the text field
       )
       .searchTextFieldStyle(isFocused: $textFieldIsFocused) // Applies the search text field style
-      .accessibilityIdentifier("searchTextField")
-      // .accessIdentifier(InterfaceID.searchTextField) // Sets the accessibility identifier for the text field
-//      .focused($textFieldIsFocused) // Sets the focus state of the text field
+      .accessibilityIdentifier("searchTextField") // Sets the accessibility identifier for the text field
       .onChange(of: textFieldIsFocused) { _, _ in // Listens for changes in textFieldIsFocused
          onFocus(textFieldIsFocused) // Calls the onFocus callback with the updated focus state
       }
@@ -68,34 +62,20 @@ extension SearchBar {
     *                clicked.
     * - Note: We can also use self.hideKeyboard()
     * - Remark: Clears the search field, hides the clear button, ends text focus, and forwards the callback
-    * - Fixme: ⚠️️⚠️️ Make ClearButton style 👈👈 Ask CoPilot to make a draft
     * - Fixme: ⚠️️ Move the onClear to a method? or better move it to a modifier, see pin for how, hold off on that, still relevant?
-    * - Fixme: ⚠️️ Or make a binding to searchMode 👈👈 wait until things are more settled, transfer code from legacy etc
-    * - Fixme: ⚠️️ Move iconName, iconSize to const
-    * - Fixme: ⚠️️ Also pull colors from pallet later etc
-    * - Fixme: ⚠️️ Use accessId? there is a ZStack in the style
+    * - Fixme: ⚠️️ Or make a binding to searchMode, wait until things are more settled, transfer code from legacy etc
+    * - Fixme: ⚠️️ Use accessId? there is a ZStack in the style, or does it work as is?
+    * - Fixme: ⚠️️ Move accessibilityIdentifier to a const?
     */
    internal var clearButton: some View {
       Button(action: {
          searchText = "" // Clears search
          onFocus(false) // Dismiss focus
-         textFieldIsFocused = false // dismiss keyboard etc
-      }) {
-      }
-      .headerIconStyle( // Applies the header icon style to the button.
-         iconName: "xmark", // Sets the icon name to "xmark"
-         // - Fixme: ⚠️️ add to const?
-         iconSize: 10, // Sets the icon size to 10
-         // - Fixme: ⚠️️ move bellow to const
-         padding: SearchBar.searchbarSizing.clearButtonPadding /*Measure.defaultMargin*/, // Applies default margin padding
-         iconColor: SearchBar.searchBarTheme.textColor/*Palette.Main.SearchBar.textColor*/ /*Color.whiteOrBlack.opacity(0.5)*/, // Sets icon color to white or black with 50% opacity
-         backgroundColor: Color.whiteOrBlack.opacity(0.2), // Sets background color to white or black with 20% opacity
-         strokeColor: .gray.opacity(0.0) // Sets stroke color to gray with 0% opacity
-      )
-      .padding(SearchBar.searchbarSizing.clearButtonPadding/*Measure.defaultMargin*/)
-      .opacity(textFieldIsFocused ? 1 : 0) // hides shows clear button
-      // - Fixme: ⚠️️ move bellow to a const
+         textFieldIsFocused = false // Dismiss keyboard etc
+      }) {}
+         .clearButtonStyle
+      .padding(SearchBar.searchbarSizing.clearButtonPadding)
+      .opacity(textFieldIsFocused ? 1 : 0) // Hides shows clear button
       .accessibilityIdentifier("searchClearButton")
-      // .accessIdentifier(InterfaceID.searchClearButton)
    }
 }

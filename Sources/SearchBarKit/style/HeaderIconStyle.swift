@@ -63,36 +63,42 @@ fileprivate struct HeaderIconStyle: ButtonStyle {
          )
    }
 }
+extension HeaderIconStyle {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   static var defaultButtonStyle: HeaderIconStyle {
+      .init(
+         iconName: "heart",
+         iconSize: 16,
+         iconColor: Color.whiteOrBlack,
+         backgroundColor: Color(light: .lightGray, dark: .darkGray).opacity(0.2),
+         strokeColor: Color.whiteOrBlack.opacity(0.5),
+         strokeWidth: 1,
+         padding: 16
+      )
+   }
+}
 /**
  * - Note: Add extension `ButtonStyle where Self == HeaderIconStyle` 
  *         later if we need to store the style for switching etc
  */
 extension Button {
    /**
-    * Applies the header icon style to the button.
-    * - Description: This method applies a header icon style to a button, allowing customization of the icon's appearance, including its size, color, and stroke. It also provides options for padding and background color, making it versatile for different UI designs.
-    * - Parameters:
-    *   - iconName: The name of the icon to be displayed on the button.
-    *   - iconSize: The size of the icon to be displayed on the button. Defaults to 16.
-    *   - padding: The padding around the button. Defaults to Measure.margin.
-    *   - iconColor: The color of the icon to be displayed on the button. Defaults to Color.whiteOrBlack.
-    *   - backgroundColor: The background color of the button. Defaults to Color(light: .lightGray, dark: .darkGray).opacity(0.2).
-    *   - strokeColor: The color of the stroke around the icon. Defaults to Color.whiteOrBlack.opacity(0.5).
-    *   - strokeWidth: The width of the stroke around the icon. Defaults to 1.
-    * - Fixme: ⚠️️ Move color consts to pallet?
-    * - Fixme: ⚠️️ Make this as a view modifier as well?
-    * - Fixme: ⚠️️ Move default vals into const
-    * - Fixme: ⚠️️ Add info regarding where this is used etc
+    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ Move iconName, iconSize to const
+    * - Fixme: ⚠️️ Also pull colors from pallet later etc
     */
-   internal func headerIconStyle(iconName: String, iconSize: CGFloat = 16, padding: CGFloat = 16/*Measure.margin*/, iconColor: Color = Color.whiteOrBlack, backgroundColor: Color = Color(light: .lightGray, dark: .darkGray).opacity(0.2), strokeColor: Color = Color.whiteOrBlack.opacity(0.5), strokeWidth: CGFloat = 1) -> some View {
-      let buttonStyle: HeaderIconStyle = .init(
-         iconName: iconName, // Sets the name of the icon to be displayed on the button
-         iconSize: iconSize, // Sets the size of the icon to be displayed on the button
-         iconColor: iconColor, // Sets the color of the icon to be displayed on the button
-         backgroundColor: backgroundColor, // Sets the background color of the button
-         strokeColor: strokeColor, // Sets the color of the stroke around the icon
-         strokeWidth: strokeWidth, // Sets the width of the stroke around the icon
-         padding: padding // Sets the padding around the button
+   internal var clearButtonStyle: some View {
+      let buttonStyle = HeaderIconStyle( // Applies the header icon style to the button.
+         iconName: "xmark",
+         // - Fixme: ⚠️️ add to const?
+         iconSize: 10,
+         iconColor: SearchBar.searchBarTheme.textColor ,
+         backgroundColor:  Color.whiteOrBlack.opacity(0.2),
+         strokeColor: .gray.opacity(0.0),
+         strokeWidth: 1,
+         padding: SearchBar.searchbarSizing.clearButtonPadding
       )
       return self.buttonStyle(buttonStyle)
    }
@@ -103,15 +109,16 @@ extension Button {
 #Preview(traits: .fixedLayout(width: 200, height: 200)) {
    PreviewContainer {
       Button(action: {}) {}
-      .headerIconStyle(
-         iconName: "chevron.left",
-         iconSize: 16,
-         // - Fixme: ⚠️️ get the bellow from somewhere
-         padding: 16/*Measure.margin*/,
-         iconColor: Color.whiteOrBlack,
-         backgroundColor: .gray.opacity(0.2),
-         strokeColor: Color.whiteOrBlack.opacity(0.5),
-         strokeWidth: 1
+      .buttonStyle(
+         HeaderIconStyle(
+            iconName: "chevron.left",
+            iconSize: 16,
+            iconColor: Color.whiteOrBlack,
+            backgroundColor: .gray.opacity(0.2),
+            strokeColor: Color.whiteOrBlack.opacity(0.5),
+            strokeWidth: 1,
+            padding: 1
+         )
       )
       .padding()
          .background(Color.blackOrWhite)

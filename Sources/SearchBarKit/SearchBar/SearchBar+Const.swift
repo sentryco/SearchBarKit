@@ -6,6 +6,22 @@ import HybridColor
  */
 extension SearchBar {
    /**
+    * Sizing configuration for the search bar.
+    * - Description: This property holds the sizing configuration for the search bar,
+    *                which determines the dimensions and layout of the search bar.
+    *                It can be customized to fit different design requirements.
+    * - Fixme: ⚠️️ rename to sizing?
+    */
+   internal static var searchbarSizing = SearchBarSizing.defaultSizing
+   /**
+    * Theme configuration for the search bar.
+    * - Description: This property holds the theme configuration for the search bar,
+    *                which determines the appearance and style of the search bar.
+    *                It can be customized to fit different design requirements.
+    * - Fixme: ⚠️️ rename to theme?
+    */
+   internal static var searchBarTheme = SearchBarTheme.defaultTheme
+   /**
     * Closure called when the text in the search bar changes.
     * - Description: This closure is invoked when the text in the 
     *                search bar changes. It allows the parent view to 

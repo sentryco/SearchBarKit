@@ -8,8 +8,6 @@ import SwiftUI
  *                and focus events. The component is designed to integrate
  *                seamlessly with SwiftUI views and provides a customizable
  *                and interactive search experience.
- * - Fixme: ⚠️️⚠️️ The `onTextChange` should probably just be a 👉 binding 👈, so maybe remove that? fix it later when transfereing code and comments from legacy etc
- * - Fixme: ⚠️️⚠️️ Make `onFocus` a binding instead? 👈 fix it later when transfering code and comments from legacy etc
  * - Fixme: ⚠️️ Possibly customize `NSSearchField` in the future etc (less custom code etc, do it when migrating to SwiftUI / Catalyst)
  */
 public struct SearchBar: View {
@@ -24,6 +22,7 @@ public struct SearchBar: View {
     *                search bar either gains or loses focus, allowing 
     *                the parent view to react to focus changes.
     * - Fixme: ⚠️️ Make this a binding or remove? or use textFieldIsFocused?
+    * - Fixme: ⚠️️⚠️️ Make `onFocus` a binding instead? 👈 fix it later when transfering code and comments from legacy etc
     * - Parameters:
     *   - isFocused: A boolean indicating whether the search bar is now focused.
     */
@@ -34,6 +33,7 @@ public struct SearchBar: View {
     *                changes the text in the search bar. It allows the 
     *                parent view to react and handle the updated search 
     *                text in real-time.
+    * - Fixme: ⚠️️⚠️️ The `onTextChange` should probably just be a 👉 binding 👈, so maybe remove that? fix it later when transfereing code and comments from legacy etc
     * - Parameters:
     *   - text: The new text in the search bar.
     */
@@ -41,7 +41,7 @@ public struct SearchBar: View {
    /**
     * Current search
     * - Description: This property holds the current search text in the search bar.
-    * - Fixme: ⚠️️ Make this a binding instead?
+    * - Fixme: ⚠️️ Make this a binding instead? or keep the "state + callback structure"?
     */
    @State internal var searchText: String
    /**
@@ -55,28 +55,11 @@ public struct SearchBar: View {
     * - Remark: This highlights the text in the search bar and sets focus to the text field.
     * - Fixme: ⚠️️ rename to isTextFieldFocused
     */
-   @FocusState internal var textFieldIsFocused: Bool
-   // @Binding var textFieldIsFocused: FocusState<Bool>.Binding
+   @FocusState internal var textFieldIsFocused: Bool // @Binding var textFieldIsFocused: FocusState<Bool>.Binding
    /**
-    * Sizing configuration for the search bar.
-    * - Description: This property holds the sizing configuration for the search bar,
-    *                which determines the dimensions and layout of the search bar.
-    *                It can be customized to fit different design requirements.
-    * - Fixme: ⚠️️ rename to sizing?
-    */
-   internal static var searchbarSizing = SearchBarSizing.defaultSizing
-   /**
-    * Theme configuration for the search bar.
-    * - Description: This property holds the theme configuration for the search bar,
-    *                which determines the appearance and style of the search bar.
-    *                It can be customized to fit different design requirements.
-    * - Fixme: ⚠️️ rename to theme?
-    */
-   internal static var searchBarTheme = SearchBarTheme.defaultTheme
-   /**
-    * ⚠️️ Temp hack for now. Solve in a better way by injecting a binding or something. Check with copilot. or placing @FocusState in the caller, i guess keeping it here is better, and figuring out a way to inject it. but its not obvious how
+    * - Imporatnt: ⚠️️ Temp hack for now. Solve in a better way by injecting a binding or something. Check with copilot. or placing @FocusState in the caller, i guess keeping it here is better, and figuring out a way to inject it. but its not obvious how
     * - Note: This will highlight the text on init, so that the user can type immidiatly
-    * - Fixme: ⚠️️ check the code in the PinView package, maybe it has better init focus code?
+    * - Fixme: ⚠️️ Check the code in the PinView package, maybe it has better init focus code?
     */
    internal let textFieldShouldFocusOnInit: Bool
    /**
@@ -89,8 +72,7 @@ public struct SearchBar: View {
     *                is invoked when the text in the search bar changes.
     * - Fixme: ⚠️️ Move the placeholderText into const Title.searchText
     * - Fixme: ⚠️️ Localize the placeholder text, see legacy
-    * - Fixme: ⚠️️ Figure out initing textFieldIsFocused from params
-    * - Fixme: ⚠️️ Clean up dead code
+    * - Fixme: ⚠️️ Rename searchText to initsearchText?
     * - Parameters:
     *   - placeholderText: The placeholder text for the search bar.
     *   - onFocus: The callback to execute when the search bar gains focus.
@@ -106,9 +88,6 @@ public struct SearchBar: View {
       self.onTextChange = onTextChange
       self._searchText = .init(initialValue: searchText)
       self.textFieldShouldFocusOnInit = textFieldShouldFocusOnInit
-//      Swift.print("init - textFieldIsFocused:  \(textFieldIsFocused.wrappedValue)")
-//      self.textFieldIsFocused = textFieldIsFocused.wrappedValue // isFocused: FocusState<Bool>.Binding
-//      self._textFieldIsFocused = .constant(textFieldIsFocused)
       Self.searchbarSizing = searchbarSizing
       Self.searchBarTheme = searchBarTheme
    }

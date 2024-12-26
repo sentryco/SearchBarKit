@@ -14,30 +14,28 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
     */
    fileprivate var isFocused: FocusState<Bool>.Binding
    /**
+    * - Fixme: ⚠️️ Add doc
+    */
+   fileprivate var padding: EdgeInsets
+   /**
     * - Description: Constructs the visual representation of 
     *                the text field, applying custom styling 
     *                and layout modifications.
     * - Fixme: ⚠️️ We can probably reuse, some general RoundedTextField style etc, see: RoundedBorderTextFieldStyle
     * - Fixme: ⚠️️ Make text color more prominent when focused
+    * - Parameter configuration: - Fixme: ⚠️️ add doc
+    * - Returns: - Fixme: ⚠️️ add doc
     */
    fileprivate func _body(configuration: TextField<Self._Label>) -> some View {
-      #if debug
-      let _ = {
-         Swift.print("isFocused:  \(isFocused.wrappedValue)")
-      }()
-      #endif
       configuration
          #if os(macOS)
          .textFieldStyle(.plain) // ⚠️️ Removes the default macOS styling from a TextField, this will remove all styling, including padding and background color. You may need to add additional modifiers to achieve the desired look.
          #endif
+         .focused(isFocused) // Binds the text field's focus state to the provided FocusState binding, allowing programmatic control of focus
          .vanillaTextFieldStyle // Adds the modifiers that disable some default keyboard things we don't need, see password input field etc
          .font(.title3) // Sets the font style to title3 (similar to .label)
-         .focused(isFocused) // Binds the text field's focus state to the provided FocusState binding, allowing programmatic control of focus
-      // - Fixme: ⚠️️ put the color into a const etc
          .foregroundColor(SearchBar.searchBarTheme.textColor) // font color
-      // - Fixme: ⚠️️ move to const
-         .padding(.vertical, SearchBar.searchbarSizing.verticalPadding) // Applies padding to the text field with half of the default padding vertically and the default margin horizontally.
-         .padding(.horizontal, (SearchBar.searchbarSizing.horizontalPadding + (12 * 2))) // offset for left and right icons in seachbar
+         .padding(padding)
          .background(
             backgroundView
          )
@@ -53,10 +51,12 @@ extension SearchTextFieldStyle {
     */
    fileprivate var backgroundView: some View {
       let style: SearchBar.Style = SearchBar.getStyle(isFocused: isFocused.wrappedValue)
-      // - Fixme: ⚠️️ move to const
+      // - Fixme: ⚠️️ Move cornerRadius to const
       return RoundedRectangle(cornerRadius: 10) // Creates a rounded rectangle with a corner radius of 12 to be used as an overlay.
-      /*Color.gray*/
-         .stroke(style.borderColor, lineWidth: style.borderWidth) // Strokes the border of the rounded rectangle with a gray color and a line width of 1.0.
+         .stroke( // Strokes the border of the rounded rectangle with a gray color and a line width of 1.0.
+            style.borderColor,
+            lineWidth: style.borderWidth
+         )
          .fill(style.backgroundColor)
    }
 }
@@ -65,18 +65,28 @@ extension SearchTextFieldStyle {
  */
 extension TextField {
    /**
+    * - Fixme: ⚠️️ add doc
+    */
+   static var defaultPadding: EdgeInsets {
+      // Applies padding to the text field with half of the default padding vertically and the default margin horizontally.
+      let vertical = SearchBar.searchbarSizing.verticalPadding
+      // offset for left and right icons in seachbar
+      let horizontal = SearchBar.searchbarSizing.horizontalPadding + 24
+      return .init(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
+   }
+   /**
     * Applies the search text field style to a TextField.
     * - Parameter isFocused: A binding to a Boolean value that indicates whether the text field is currently focused.
     * - Returns: A view modifier that applies the search text field style to the TextField.
     */
-   internal func searchTextFieldStyle(isFocused: FocusState<Bool>.Binding) -> some View {
+   internal func searchTextFieldStyle(isFocused: FocusState<Bool>.Binding, padding: EdgeInsets = defaultPadding) -> some View {
       #if debug
       let _ = {
          Swift.print("searchTextFieldStyle - isFocused:  \(isFocused.wrappedValue)")
       }()
       #endif
       let textFieldStyle = SearchTextFieldStyle(
-         isFocused: isFocused // Binding that controls and tracks the focus state of the text field
+         isFocused: isFocused, padding: padding // Binding that controls and tracks the focus state of the text field
       )
       return self.textFieldStyle(textFieldStyle)
    }

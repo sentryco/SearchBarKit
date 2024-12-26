@@ -32,7 +32,7 @@ import HybridColor
                Swift.print("text: \(text)")
             },
             textFieldShouldFocusOnInit: false,
-            searchText: "Adobe"
+            searchText: "" // "Adobe"
          )
       }
    }

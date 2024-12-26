@@ -8,7 +8,6 @@ import HybridColor
  *                padding.
  * - Note: Used in many places that has an Icon
  * - Fixme: ⚠️️ Reuse other modifiers for some of the styling here etc
- * - Fixme: ⚠️️ Doc each variable
  */
 fileprivate struct HeaderIconViewModifier: ViewModifier {
    /**
@@ -52,9 +51,9 @@ extension HeaderIconViewModifier {
     * - Parameter content: The content to display.
     * - Returns: A modified version of the content with the header icon view modifier applied.
     */
-   @ViewBuilder // - Fixme: ⚠️️ remove this when we add a stack
+   @ViewBuilder // - Fixme: ⚠️️ Remove this when we add a stack
    fileprivate func body(content: Content) -> some View {
-      content // - Fixme: ⚠️️ remove this?
+      content // - Fixme: ⚠️️ Remove this?
       ZStack(alignment: .init(horizontal: .center, vertical: .center)) {
          background // Background shape
          stroke // Stroke shape
