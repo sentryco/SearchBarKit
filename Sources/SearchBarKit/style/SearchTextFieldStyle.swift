@@ -32,7 +32,7 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
          #endif
          .vanillaTextFieldStyle // Adds the modifiers that disable some default keyboard things we don't need, see password input field etc
          .font(.title3) // Sets the font style to title3 (similar to .label)
-         .focused(isFocused) // - Fixme: ⚠️️ doc this line
+         .focused(isFocused) // Binds the text field's focus state to the provided FocusState binding, allowing programmatic control of focus
       // - Fixme: ⚠️️ put the color into a const etc
          .foregroundColor(SearchBar.searchBarTheme.textColor) // font color
       // - Fixme: ⚠️️ move to const
@@ -76,7 +76,7 @@ extension TextField {
       }()
       #endif
       let textFieldStyle = SearchTextFieldStyle(
-         isFocused: isFocused // - Fixme: ⚠️️ doc this line
+         isFocused: isFocused // Binding that controls and tracks the focus state of the text field
       )
       return self.textFieldStyle(textFieldStyle)
    }
