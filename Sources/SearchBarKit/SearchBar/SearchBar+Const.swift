@@ -1,8 +1,7 @@
 import SwiftUI
 import HybridColor
 /**
- * Const
- * - Fixme: ⚠️️ Deprecate these and use bindings and the @Focused prop etc? maybe later when we add code from legacy etc, this needs exploration before executing on it etc do some validating
+ * Const - theme
  */
 extension SearchBar {
    /**
@@ -12,7 +11,7 @@ extension SearchBar {
     *                It can be customized to fit different design requirements.
     * - Fixme: ⚠️️ rename to sizing?
     */
-   internal static var searchbarSizing = SearchBarSizing.defaultSizing
+   internal static var searchbarSizing: SearchBarSizing = .defaultSizing
    /**
     * Theme configuration for the search bar.
     * - Description: This property holds the theme configuration for the search bar,
@@ -20,7 +19,20 @@ extension SearchBar {
     *                It can be customized to fit different design requirements.
     * - Fixme: ⚠️️ rename to theme?
     */
-   internal static var searchBarTheme = SearchBarTheme.defaultTheme
+   internal static var searchBarTheme: SearchBarTheme = .defaultTheme
+   /**
+    * - Fixme: ⚠️️ Add doc
+    * - Fixme: ⚠️️ it seems placeholder color only works for iOS at the moment. try to figure out why etc
+    */
+   internal static let placeholderColor: Color = {
+      .init(light: .gray, dark: .gray).opacity(0.8)
+   }()
+}
+/**
+ * Const - type / callback
+ * - Fixme: ⚠️️ Deprecate these and use bindings and the @Focused prop etc? maybe later when we add code from legacy etc, this needs exploration before executing on it etc do some validating
+ */
+extension SearchBar {
    /**
     * Closure called when the text in the search bar changes.
     * - Description: This closure is invoked when the text in the 

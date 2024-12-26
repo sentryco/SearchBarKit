@@ -2,21 +2,55 @@ import SwiftUI
 import HybridColor
 /**
  * Components
+ * - Fixme: ⚠️️ Take a look at the new `focusEffectDisabled`: https://stackoverflow.com/a/77681648/5389500 and https://stackoverflow.com/a/60286113/5389500
  */
 extension SearchBar {
    /**
-    * Creates the icon (leftIcon)
-    * - Fixme: ⚠️️ maybe also add focused and unfocused state for this? change the colors etc?
-    * - Fixme: ⚠️️ Move icon to const
+    * - Fixme: ⚠️️ Add doc
     */
-   internal var leftIcon: some View {
+   internal var stack: some View {
+      HStack(spacing: .zero) { // Initializes a ZStack to layer the searchTextField and the HStack containing icons and clear button
+         leftIcon // Adds search icon to the left
+         searchTextField // Displays the search text field
+         clearButton // Adds clearButton to the right
+      }
+         .background(
+            backgroundView
+         )
+   }
+}
+/**
+ * Private
+ */
+extension SearchBar {
+   /**
+    * Creates background view for the `SearchBar`
+    * - Remark: Represents the background for the input-text-field (has rounded corners etc)
+    * - Fixme: ⚠️️ Move cornerRadius to const
+    */
+   fileprivate var backgroundView: some View {
+      let style: SearchBar.Style = SearchBar.getStyle(isFocused: textFieldIsFocused)
+      return RoundedRectangle(cornerRadius: 10) // Creates a rounded rectangle with a corner radius of 12 to be used as an overlay.
+         .stroke( // Strokes the border of the rounded rectangle with a gray color and a line width of 1.0.
+            style.borderColor,
+            lineWidth: style.borderWidth
+         )
+         .fill(style.backgroundColor)
+   }
+   /**
+    * Creates the icon (leftIcon)
+    * - Fixme: ⚠️️ Maybe also add focused and unfocused state for this? change the colors etc?
+    * - Fixme: ⚠️️ Move icon to const
+    * - Fixme: ⚠️️ Consider moving size to const 👈
+    */
+   fileprivate var leftIcon: some View {
       Image(optionalSystemName: "magnifyingglass")?
          .iconStyle(
-            // - Fixme: ⚠️️ consider adding to const
             size: 18,
-            padding: SearchBar.searchbarSizing.leftIconHorizontalPadding/*Measure.defaultMargin*/,
-            color: SearchBar.searchBarTheme.iconColor/*Palette.Main.SearchBar.icon*/ // Color.whiteOrBlack.opacity(0.5)
+            padding: SearchBar.searchbarSizing.leftIconHorizontalPadding,
+            color: SearchBar.searchBarTheme.iconColor
          )
+         
    }
    /**
     * searchTextField
@@ -31,17 +65,12 @@ extension SearchBar {
               essential for managing the user's interaction with the 
               search bar.
     * - Fixme: ⚠️️ Move logic into modifiers, see `PinCode`, how it's done there etc? 👈 can searchbar be a style or a modifier etc?
-    * - Fixme: ⚠️️ Take a look at the new `focusEffectDisabled`: https://stackoverflow.com/a/77681648/5389500 and https://stackoverflow.com/a/60286113/5389500
-    * - Fixme: ⚠️️ Move the placeholder color to pallet 🏀
     * - Fixme: ⚠️️ Remove the TextField id. we set the real id later? make sure UITests keep running etc
-    * - Fixme: ⚠️️ move foregroundStyle to ViewModififier that we apply to entire SearchBarView? decouled styling?
-    * - Fixme: ⚠️️ does the placeholder text work? confirm this
     */
-   internal var searchTextField: some View {
+   fileprivate var searchTextField: some View {
       let placeholderTxt: Text = {
-         let color: Color = .init(light: .gray, dark: .gray).opacity(0.8)
          return Text(placeholderText) // Customize placeholder text color
-            .foregroundStyle(color)
+            .foregroundStyle(Self.placeholderColor)
       }()
       return TextField(
          "searchTextField", // Sets the accessibility identifier for the text field
@@ -66,16 +95,32 @@ extension SearchBar {
     * - Fixme: ⚠️️ Or make a binding to searchMode, wait until things are more settled, transfer code from legacy etc
     * - Fixme: ⚠️️ Use accessId? there is a ZStack in the style, or does it work as is?
     * - Fixme: ⚠️️ Move accessibilityIdentifier to a const?
+    * - Fixme: ⚠️️ move iconSize to contst
     */
-   internal var clearButton: some View {
-      Button(action: {
-         searchText = "" // Clears search
-         onFocus(false) // Dismiss focus
-         textFieldIsFocused = false // Dismiss keyboard etc
-      }) {}
-         .clearButtonStyle
-      .padding(SearchBar.searchbarSizing.clearButtonPadding)
-      .opacity(textFieldIsFocused ? 1 : 0) // Hides shows clear button
-      .accessibilityIdentifier("searchClearButton")
+   @ViewBuilder fileprivate var clearButton: some View {
+      if textFieldIsFocused {
+         Button(action: handleClearButtonPress) {}
+            .clearButtonStyle
+            .padding(SearchBar.searchbarSizing.clearButtonPadding)
+         // .opacity(textFieldIsFocused ? 1 : 0) // Hides shows clear button
+            .accessibilityIdentifier("searchClearButton")
+            #if DEBUG
+            .background(isDebuggingSearchBar ? .purple : .clear)
+            #endif
+      } else { // ghost graphics, to avoid collapsing into the void space when not shown
+         Rectangle()
+            .fill(Color.clear)
+            .frame(
+               width: 10 + SearchBar.searchbarSizing.clearButtonPadding,
+               height: 10 + SearchBar.searchbarSizing.clearButtonPadding
+            )
+            #if DEBUG
+            .background(isDebuggingSearchBar ? .teal : .clear)
+            #endif
+            .padding(SearchBar.searchbarSizing.clearButtonPadding)
+            #if DEBUG
+            .background(isDebuggingSearchBar ? .indigo : .clear)
+            #endif
+      }
    }
 }

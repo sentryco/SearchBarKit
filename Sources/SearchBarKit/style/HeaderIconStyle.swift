@@ -8,6 +8,7 @@ import HybridColor
  * - Note: Used for back and more button in header and in onboarding
  * - Note: Alternative name: `HeaderIconButtonStyle`
  * - Fixme: ⚠️️ doc each variable
+ * - Fixme: ⚠️️ break file into multiple files
  * ## Examples:
  * IconButtonStyle(strokeColor, backgroundColor, iconColor, size, iconSize)
  */

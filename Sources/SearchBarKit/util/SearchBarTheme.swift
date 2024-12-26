@@ -5,14 +5,34 @@ import HybridColor
  * - Description: This struct holds the theme configuration for the search bar,
  *                which determines the appearance and style of the search bar.
  *                It can be customized to fit different design requirements.
- * - Fixme: ⚠️️ probably add a public init here?
+ * - Fixme: ⚠️️ Probably add a public init here?
+ * - Fixme: ⚠️️ Add placeholder text color?
+ * - Fixme: ⚠️️ break file into multiple files
  */
 public struct SearchBarTheme {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    internal let iconColor: Color
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    internal let textColor: Color
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    internal let activeBG: Color
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    internal let activeBorder: Color
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    internal let background: Color
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    internal let borderColor: Color
 }
 /**
@@ -112,14 +132,14 @@ extension SearchBarTheme {
          #if os(iOS)
          Color.darkGray.opacity(1)
          #elseif os(macOS)
-         tertiary/*Palette.Background.tertiary*/
+         tertiary
          #endif
       }()
       let dark: Color = {
          #if os(iOS)
          Color.lightGray.opacity(0.6)
          #elseif os(macOS)
-         quaternary/*Palette.Background.quaternary*/
+         quaternary
          #endif
       }()
       return .init(light: light, dark: dark)

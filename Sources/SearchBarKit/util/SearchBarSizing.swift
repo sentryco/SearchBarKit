@@ -4,6 +4,7 @@ import Foundation
  * - Description: This struct holds the sizing configuration for the search bar,
  *                which determines the dimensions and layout of the search bar.
  *                It can be customized to fit different design requirements.
+ * - Fixme: ⚠️️ break file into multiple files
  */
 public struct SearchBarSizing {
    /**
@@ -11,6 +12,7 @@ public struct SearchBarSizing {
     * - Description: This property determines the horizontal padding around the search bar,
     *                which affects the overall width of the search bar.
     * - Fixme: ⚠️️ rename to textHor...
+    * - Fixme: ⚠️️ rename to ...innerPadding?
     */
    let horizontalPadding: CGFloat
    /**
@@ -18,6 +20,7 @@ public struct SearchBarSizing {
     * - Description: This property determines the vertical padding around the search bar,
     *                which affects the overall height of the search bar.
     * - Fixme: ⚠️️ rename to textVer...
+    * - Fixme: ⚠️️ rename to ...innerPadding?
     */
    let verticalPadding: CGFloat
    /**
@@ -43,7 +46,7 @@ extension SearchBarSizing {
     */
    public static var defaultSizing: SearchBarSizing {
       .init(
-         horizontalPadding: 12,
+         horizontalPadding: .zero/*12*/,
          verticalPadding: 10,
          leftIconHorizontalPadding: 12,
          clearButtonPadding: 12

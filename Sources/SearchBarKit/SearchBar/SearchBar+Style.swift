@@ -10,7 +10,7 @@ extension SearchBar {
     *                border color, and border width of the SearchBar.
     * - Remark: Represents the background color, border color, and 
     *          border width for the search bar button.
-    * - Fixme: ⚠️️⚠️️⚠️️ Consider using a struct instead of a typealias for better readability and maintainability.
+    * - Fixme: ⚠️️ Consider using a struct instead of a typealias for better readability and maintainability.
     * - Fixme: ⚠️️ Rename to SearchBarStyle?
     */
    internal typealias Style = (
@@ -48,8 +48,8 @@ extension SearchBar {
     */
    fileprivate static let inActiveBGStyle: SearchBar.Style = {
       (
-         backgroundColor: SearchBar.searchBarTheme.background/*Palette.Main.SearchBar.background*/, // The background color of the search bar.
-         borderColor: SearchBar.searchBarTheme.borderColor/*Palette.Main.SearchBar.borderColor*/, // The border color of the search bar.
+         backgroundColor: SearchBar.searchBarTheme.background, // The background color of the search bar.
+         borderColor: SearchBar.searchBarTheme.borderColor, // The border color of the search bar.
          borderWidth: 0.5 // The width of the border of the search bar.
          // cornerRadius: SearchBarView.height / 6 // The corner radius of the search bar.
       )

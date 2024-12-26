@@ -8,6 +8,7 @@ import HybridColor
  *                padding.
  * - Note: Used in many places that has an Icon
  * - Fixme: ⚠️️ Reuse other modifiers for some of the styling here etc
+ * - Fixme: ⚠️️ break file into multiple files
  */
 fileprivate struct HeaderIconViewModifier: ViewModifier {
    /**

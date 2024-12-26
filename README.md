@@ -43,6 +43,8 @@ Add to your project using Swift Package Manager by adding the following URL:
 - Add more comments with AI 
 - Remove unit test, add uitest
 - It seems placeholder text-color for SearchBar text doesnt work for macOS. Try to fix it
+- Store accessIds in an accissible const
+- Make SearchBar a ViewBuilder and add styling as a textfield modifier?
 
 ## Future improvments:
 - Add SearchBarIdentifier (injectable accessid) (for now these are hardcoded) 

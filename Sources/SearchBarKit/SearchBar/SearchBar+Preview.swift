@@ -17,38 +17,39 @@ import HybridColor
  * - Fixme: ⚠️️ clean up dead code
  */
 #Preview(traits: .fixedLayout(width: 400, height: 400)) {
-   struct DebugView: View {
-//      @FocusState private var isFocused: Bool
-      var body: some View {
-//         let _ = {
-//            self.isFocused = true
-//         }()
-         SearchBar(
-            placeholderText: "Search...", // Placeholder text displayed in the SearchBar when no text is entered.
-            onFocus: { (_ isFocused: Bool) in // Callback function triggered when the SearchBar gains or loses focus.
-               Swift.print("isFocused: \(isFocused)")
-            },
-            onTextChange: { text in // Handles text changes in the SearchBar, printing the new text to the console.
-               Swift.print("text: \(text)")
-            },
-            textFieldShouldFocusOnInit: false,
-            searchText: "" // "Adobe"
-         )
-      }
-   }
-//   let previewContainer = PreviewContainer {
-   let previewContainer = DebugView()
-         .padding()
-         .background(Color.blackOrWhite) // .background(Color.tertiaryBackground)
-         #if os(macOS)
-         .padding(.horizontal)
-         #endif // .contentInsetAdjustmentBehavior = .never
-//   }
-   // .environment(\.colorScheme, .dark) // return previewContainer
+   let searchbarSizing: SearchBarSizing = {
+      .init(
+         horizontalPadding: SearchBarSizing.defaultSizing.horizontalPadding,
+         verticalPadding: SearchBarSizing.defaultSizing.verticalPadding,
+         leftIconHorizontalPadding: SearchBarSizing.defaultSizing.leftIconHorizontalPadding,
+         clearButtonPadding: SearchBarSizing.defaultSizing.clearButtonPadding
+      )
+   }()
+   let searchbar: some View = SearchBar(
+      placeholderText: "Search...", // Placeholder text displayed in the SearchBar when no text is entered.
+      searchbarSizing: searchbarSizing,
+      onFocus: { (_ isFocused: Bool) in // Callback function triggered when the SearchBar gains or loses focus.
+         Swift.print("isFocused: \(isFocused)")
+      },
+      onTextChange: { text in // Handles text changes in the SearchBar, printing the new text to the console.
+         Swift.print("text: \(text)")
+      },
+      textFieldShouldFocusOnInit: false,
+      searchText: "" // "Adobe"
+   )
+      .padding() // Outer padding
+      .background(
+         Rectangle()
+            .fill(Color.blackOrWhite)
+            .overlay(Color.gray.opacity(0.15))
+      ) // .background(Color.tertiaryBackground)
+      #if os(macOS)
+      .padding(.horizontal)
+      #endif // .contentInsetAdjustmentBehavior = .never  
    if isPadDevice { // iPad
-      return previewContainer
+      searchbar
          .frame(maxWidth: 400, maxHeight: 400) // .ignoresSafeArea(.keyboard, edges: .bottom)  // .edgesIgnoringSafeArea(.all)
    } else { // mac or iphone
-      return previewContainer
+      searchbar
    }
 }

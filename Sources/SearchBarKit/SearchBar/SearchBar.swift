@@ -92,3 +92,4 @@ public struct SearchBar: View {
       Self.searchBarTheme = searchBarTheme
    }
 }
+public var isDebuggingSearchBar: Bool = false // ⚠️️ debug colors

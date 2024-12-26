@@ -26,7 +26,13 @@ extension Image {
          .resizable() // Make the image resizable
          .aspectRatio(contentMode: .fit)  // Set the aspect ratio of the image to fit (// .fill .scaledToFit())
          .frame(width: size, height: size) // Set the frame size of the image
+         #if DEBUG
+         .background(isDebuggingSearchBar ? .green : .clear)
+         #endif
          .padding(.horizontal, padding) // Add horizontal padding to the image
+         #if DEBUG
+         .background(isDebuggingSearchBar ? .orange : .clear)
+         #endif
          .foregroundColor(color) // Set the color of the image
    }
 }
