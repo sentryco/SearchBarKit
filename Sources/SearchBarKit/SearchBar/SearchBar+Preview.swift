@@ -43,9 +43,9 @@ import HybridColor
             .fill(Color.blackOrWhite)
             .overlay(Color.gray.opacity(0.15))
       ) // .background(Color.tertiaryBackground)
-      #if os(macOS)
-      .padding(.horizontal)
-      #endif // .contentInsetAdjustmentBehavior = .never  
+//      #if os(macOS)
+//      .padding(.horizontal)
+//      #endif // .contentInsetAdjustmentBehavior = .never  
    if isPadDevice { // iPad
       return searchbar
          .frame(maxWidth: 400, maxHeight: 400) // .ignoresSafeArea(.keyboard, edges: .bottom)  // .edgesIgnoringSafeArea(.all)

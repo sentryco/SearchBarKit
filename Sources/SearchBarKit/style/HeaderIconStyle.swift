@@ -91,10 +91,10 @@ extension Button {
     * - Fixme: ⚠️️ Also pull colors from pallet later etc
     */
    internal var clearButtonStyle: some View {
-      let buttonStyle = HeaderIconStyle( // Applies the header icon style to the button.
+      let buttonStyle: HeaderIconStyle = .init( // Applies the header icon style to the button.
          iconName: "xmark",
-         // - Fixme: ⚠️️ add to const?
-         iconSize: 10,
+         // - Fixme: ⚠️️ Add to const?
+         iconSize: 12, // ⚠️️ Was 10
          iconColor: SearchBar.searchBarTheme.textColor ,
          backgroundColor:  Color.whiteOrBlack.opacity(0.2),
          strokeColor: .gray.opacity(0.0),

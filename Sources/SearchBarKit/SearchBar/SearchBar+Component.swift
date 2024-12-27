@@ -7,6 +7,7 @@ import HybridColor
 extension SearchBar {
    /**
     * - Fixme: ⚠️️ Add doc
+    * - Note: The tallest view represents the height of the entire stack. In this case clearButton is 46px high, and the stack is then 46px high
     */
    internal var stack: some View {
       HStack(spacing: .zero) { // Initializes a ZStack to layer the searchTextField and the HStack containing icons and clear button
@@ -17,6 +18,11 @@ extension SearchBar {
          .background(
             backgroundView
          )
+         .getHeight { height in
+            if isPrintingSearchBar {
+               print("SearchBar height: \(height)")
+            }
+         }
    }
 }
 /**
@@ -50,7 +56,11 @@ extension SearchBar {
             padding: SearchBar.searchbarSizing.leftIconHorizontalPadding,
             color: SearchBar.searchBarTheme.iconColor
          )
-         
+         .getHeight { height in
+            if isPrintingSearchBar {
+               print("leftIcon height: \(height)")
+            }
+         }
    }
    /**
     * searchTextField
@@ -78,6 +88,11 @@ extension SearchBar {
          prompt: placeholderTxt // Sets the placeholder text for the text field
       )
       .searchTextFieldStyle(isFocused: $textFieldIsFocused) // Applies the search text field style
+      .getHeight { height in
+         if isPrintingSearchBar {
+            print("searchTextField height: \(height)")
+         }
+      }
       .accessibilityIdentifier("searchTextField") // Sets the accessibility identifier for the text field
       .onChange(of: textFieldIsFocused) { _, _ in // Listens for changes in textFieldIsFocused
          onFocus(textFieldIsFocused) // Calls the onFocus callback with the updated focus state
@@ -97,30 +112,38 @@ extension SearchBar {
     * - Fixme: ⚠️️ Move accessibilityIdentifier to a const?
     * - Fixme: ⚠️️ move iconSize to contst
     */
-   @ViewBuilder fileprivate var clearButton: some View {
-      if textFieldIsFocused {
-         Button(action: handleClearButtonPress) {}
-            .clearButtonStyle
-            .padding(SearchBar.searchbarSizing.clearButtonPadding)
-         // .opacity(textFieldIsFocused ? 1 : 0) // Hides shows clear button
-            .accessibilityIdentifier("searchClearButton")
-            #if DEBUG
-            .background(isDebuggingSearchBar ? .purple : .clear)
-            #endif
-      } else { // ghost graphics, to avoid collapsing into the void space when not shown
-         Rectangle()
-            .fill(Color.clear)
-            .frame(
-               width: 10 + SearchBar.searchbarSizing.clearButtonPadding,
-               height: 10 + SearchBar.searchbarSizing.clearButtonPadding
-            )
-            #if DEBUG
-            .background(isDebuggingSearchBar ? .teal : .clear)
-            #endif
-            .padding(SearchBar.searchbarSizing.clearButtonPadding)
-            #if DEBUG
-            .background(isDebuggingSearchBar ? .indigo : .clear)
-            #endif
+   fileprivate var clearButton: some View {
+      @ViewBuilder var view: some View {
+         if textFieldIsFocused {
+            Button(action: handleClearButtonPress) {}
+               .clearButtonStyle
+               .padding(SearchBar.searchbarSizing.clearButtonPadding)
+            // .opacity(textFieldIsFocused ? 1 : 0) // Hides shows clear button
+               .accessibilityIdentifier("searchClearButton")
+               #if DEBUG
+               .background(isDebuggingSearchBar ? .purple : .clear)
+               #endif
+         } else { // ghost graphics, to avoid collapsing into the void space when not shown
+            Rectangle()
+               .fill(Color.clear)
+               .frame(
+                  width: 12 + SearchBar.searchbarSizing.clearButtonPadding, // 12 equals icon size
+                  height: 12 + SearchBar.searchbarSizing.clearButtonPadding
+               )
+               #if DEBUG
+               .background(isDebuggingSearchBar ? .teal : .clear)
+               #endif
+               .padding(SearchBar.searchbarSizing.clearButtonPadding)
+               #if DEBUG
+               .background(isDebuggingSearchBar ? .indigo : .clear)
+               #endif
+         }
       }
+      return view
+         .getHeight { height in
+            if isPrintingSearchBar {
+               print("clearButton height: \(height)")
+            }
+         }
    }
 }
