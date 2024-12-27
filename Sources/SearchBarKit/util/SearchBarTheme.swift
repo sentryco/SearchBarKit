@@ -13,31 +13,31 @@ public struct SearchBarTheme {
    /**
     * - Fixme: ⚠️️ add doc
     */
-   internal let iconColor: Color
+   public let iconColor: Color
    /**
     * - Fixme: ⚠️️ add doc
     */
-   internal let textColor: Color
+   public let textColor: Color
    /**
     * - Fixme: ⚠️️ add doc
     */
-   internal let activeBG: Color
+   public let activeBG: Color
    /**
     * - Fixme: ⚠️️ add doc
     */
-   internal let activeBorder: Color
+   public let activeBorder: Color
    /**
     * - Fixme: ⚠️️ add doc
     */
-   internal let background: Color
+   public let background: Color
    /**
     * - Fixme: ⚠️️ add doc
     */
-   internal let borderColor: Color
+   public let borderColor: Color
    /**
     * - Fixme: ⚠️️ Add doc
     */
-   init(iconColor: Color, textColor: Color, activeBG: Color, activeBorder: Color, background: Color, borderColor: Color) {
+   public init(iconColor: Color, textColor: Color, activeBG: Color, activeBorder: Color, background: Color, borderColor: Color) {
       self.iconColor = iconColor
       self.textColor = textColor
       self.activeBG = activeBG

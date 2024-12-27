@@ -14,7 +14,7 @@ public struct SearchBarSizing {
     * - Fixme: ⚠️️ rename to textHor...
     * - Fixme: ⚠️️ rename to ...innerPadding?
     */
-   let horizontalPadding: CGFloat
+   public let horizontalPadding: CGFloat
    /**
     * Vertical padding for the search bar.
     * - Description: This property determines the vertical padding around the search bar,
@@ -22,19 +22,19 @@ public struct SearchBarSizing {
     * - Fixme: ⚠️️ rename to textVer...
     * - Fixme: ⚠️️ rename to ...innerPadding?
     */
-   let verticalPadding: CGFloat
+   public let verticalPadding: CGFloat
    /**
     * Horizontal padding for the left icon.
     * - Description: This property determines the horizontal padding between the left icon and the search bar,
     *                which affects the overall width of the search bar.
     */
-   let leftIconHorizontalPadding: CGFloat
+   public let leftIconHorizontalPadding: CGFloat
    /**
     * Padding for the clear button.
     * - Description: This property determines the padding around the clear button,
     *                which affects the overall width of the search bar.
     */
-   let clearButtonPadding: CGFloat
+   public let clearButtonPadding: CGFloat
    /**
     * - Fixme: ⚠️️ Add doc
     */
