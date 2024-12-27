@@ -35,7 +35,15 @@ public struct SearchBarSizing {
     *                which affects the overall width of the search bar.
     */
    let clearButtonPadding: CGFloat
-   // - Fixme: ⚠️️ add public init etc
+   /**
+    * - Fixme: ⚠️️ Add doc
+    */
+   public init(horizontalPadding: CGFloat, verticalPadding: CGFloat, leftIconHorizontalPadding: CGFloat, clearButtonPadding: CGFloat) {
+      self.horizontalPadding = horizontalPadding
+      self.verticalPadding = verticalPadding
+      self.leftIconHorizontalPadding = leftIconHorizontalPadding
+      self.clearButtonPadding = clearButtonPadding
+   }
 }
 /**
  * Default sizing configuration for the search bar.

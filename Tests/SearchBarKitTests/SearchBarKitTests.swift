@@ -1,5 +1,5 @@
 import XCTest
-@testable import SearchBarKit
+import SearchBarKit
 
 final class SearchBarKitTests: XCTestCase {
     func testExample() throws {

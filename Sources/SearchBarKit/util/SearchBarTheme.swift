@@ -7,7 +7,7 @@ import HybridColor
  *                It can be customized to fit different design requirements.
  * - Fixme: ⚠️️ Probably add a public init here?
  * - Fixme: ⚠️️ Add placeholder text color?
- * - Fixme: ⚠️️ break file into multiple files
+ * - Fixme: ⚠️️ Break file into multiple files
  */
 public struct SearchBarTheme {
    /**
@@ -34,6 +34,17 @@ public struct SearchBarTheme {
     * - Fixme: ⚠️️ add doc
     */
    internal let borderColor: Color
+   /**
+    * - Fixme: ⚠️️ Add doc
+    */
+   init(iconColor: Color, textColor: Color, activeBG: Color, activeBorder: Color, background: Color, borderColor: Color) {
+      self.iconColor = iconColor
+      self.textColor = textColor
+      self.activeBG = activeBG
+      self.activeBorder = activeBorder
+      self.background = background
+      self.borderColor = borderColor
+   }
 }
 /**
  * Const
