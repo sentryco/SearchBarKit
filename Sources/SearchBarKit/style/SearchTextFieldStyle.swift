@@ -37,13 +37,13 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
          .vanillaTextFieldStyle // Adds the modifiers that disable some default keyboard things we don't need, see password input field etc
          .font(.title3) // Sets the font style to title3 (similar to .label)
          .foregroundColor(SearchBar.searchBarTheme.textColor) // font color
-#if DEBUG
+         #if DEBUG
          .background(isDebuggingSearchBar ? .purple : .clear)
-#endif
+         #endif
          .padding(padding) // Inner padding
-#if DEBUG
+         #if DEBUG
          .background(isDebuggingSearchBar ? .pink : .clear)
-#endif
+         #endif
    }
 }
 

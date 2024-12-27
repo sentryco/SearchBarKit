@@ -47,9 +47,9 @@ import HybridColor
       .padding(.horizontal)
       #endif // .contentInsetAdjustmentBehavior = .never  
    if isPadDevice { // iPad
-      searchbar
+      return searchbar
          .frame(maxWidth: 400, maxHeight: 400) // .ignoresSafeArea(.keyboard, edges: .bottom)  // .edgesIgnoringSafeArea(.all)
    } else { // mac or iphone
-      searchbar
+      return searchbar
    }
 }
