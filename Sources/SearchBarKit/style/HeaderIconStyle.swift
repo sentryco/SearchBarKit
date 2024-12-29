@@ -66,7 +66,8 @@ fileprivate struct HeaderIconStyle: ButtonStyle {
 }
 extension HeaderIconStyle {
    /**
-    * - Fixme: ⚠️️ add doc
+    * Provides a default style configuration for header icons used in buttons.
+    * - Description: This style configuration includes default values for icon name, size, color, background color, stroke color, stroke width, and padding. It is used to style header icons consistently across the application.
     */
    static var defaultButtonStyle: HeaderIconStyle {
       .init(
@@ -86,7 +87,8 @@ extension HeaderIconStyle {
  */
 extension Button {
    /**
-    * - Fixme: ⚠️️ add doc
+    * Applies the `HeaderIconStyle` to a button.
+    * - Description: This method modifies a button by applying the `HeaderIconStyle`, which includes customizations for the icon's appearance and the button's overall style. It sets the icon name, size, color, background color, stroke color, stroke width, and padding according to the style's properties.
     * - Fixme: ⚠️️ Move iconName, iconSize to const
     * - Fixme: ⚠️️ Also pull colors from pallet later etc
     */

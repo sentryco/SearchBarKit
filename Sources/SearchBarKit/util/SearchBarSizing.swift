@@ -36,7 +36,10 @@ public struct SearchBarSizing {
     */
    public let clearButtonPadding: CGFloat
    /**
-    * - Fixme: ⚠️️ Add doc
+    * - Description: This struct encapsulates all padding-related configurations for various elements of the search bar,
+    *                including horizontal and vertical padding for the search bar itself, padding for the left icon,
+    *                and padding for the clear button. These configurations help in customizing the layout and spacing
+    *                within the search bar to match design specifications.
     */
    public init(horizontalPadding: CGFloat, verticalPadding: CGFloat, leftIconHorizontalPadding: CGFloat, clearButtonPadding: CGFloat) {
       self.horizontalPadding = horizontalPadding

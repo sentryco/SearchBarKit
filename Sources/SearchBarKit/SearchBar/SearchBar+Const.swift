@@ -21,7 +21,9 @@ extension SearchBar {
     */
    internal static var searchBarTheme: SearchBarTheme = .defaultTheme
    /**
-    * - Fixme: ⚠️️ Add doc
+    * Placeholder color for the search bar.
+    * - Description: This property defines the color used for the placeholder text in the search bar.
+    *                It adjusts its opacity based on the theme to ensure optimal visibility across different backgrounds.
     * - Fixme: ⚠️️ it seems placeholder color only works for iOS at the moment. try to figure out why etc
     */
    internal static let placeholderColor: Color = {

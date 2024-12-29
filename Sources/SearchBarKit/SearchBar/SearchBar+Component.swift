@@ -6,7 +6,7 @@ import HybridColor
  */
 extension SearchBar {
    /**
-    * - Fixme: ⚠️️ Add doc
+    * - Description: This property creates a horizontal stack that layers the search icon, text field, and clear button horizontally. It is used to construct the visual layout of the search bar.
     * - Note: The tallest view represents the height of the entire stack. In this case clearButton is 46px high, and the stack is then 46px high
     */
    internal var stack: some View {

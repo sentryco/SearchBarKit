@@ -15,7 +15,7 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
     */
    fileprivate var isFocused: FocusState<Bool>.Binding
    /**
-    * - Fixme: ⚠️️ Add doc
+    * - Description: Indicates whether the text field is currently focused, affecting the visual style and behavior.
     * - Fixme: ⚠️️ rename to innerPadding
     */
    fileprivate var padding: EdgeInsets
@@ -25,8 +25,8 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
     *                and layout modifications.
     * - Fixme: ⚠️️ We can probably reuse, some general RoundedTextField style etc, see: RoundedBorderTextFieldStyle
     * - Fixme: ⚠️️ Make text color more prominent when focused
-    * - Parameter configuration: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Parameter configuration: The TextField configuration that defines the text field's appearance and interaction.
+    * - Returns: A view representing the styled text field.
     */
    fileprivate func _body(configuration: TextField<Self._Label>) -> some View {
       configuration
@@ -52,7 +52,11 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
  */
 extension TextField {
    /**
-    * - Fixme: ⚠️️ add doc
+    * Provides the default inner padding for a TextField within the search bar.
+    * This padding is calculated based on the vertical padding and horizontal padding
+    * defined in the SearchBar's sizing configuration. It ensures that the text field
+    * has balanced padding around the text, accommodating any icons or buttons aligned
+    * with it.
     */
    public static var defaultInnerPadding: EdgeInsets {
       // Applies padding to the text field with half of the default padding vertically and the default margin horizontally.
@@ -70,12 +74,12 @@ extension TextField {
     * Applies the search text field style to a TextField.
     * - Fixme: ⚠️️ rename padding to innerPadding?
     * - Parameter isFocused: A binding to a Boolean value that indicates whether the text field is currently focused.
-    * - Parameter padding: - Fixme: ⚠️️ add doc
+    * - Parameter padding: The padding to apply around the text field, specified as an EdgeInsets.
     * - Returns: A view modifier that applies the search text field style to the TextField.
     */
    internal func searchTextFieldStyle(isFocused: FocusState<Bool>.Binding, padding: EdgeInsets = defaultInnerPadding) -> some View {
       let textFieldStyle = SearchTextFieldStyle(
-         isFocused: isFocused, // - Fixme: ⚠️️ doc this line
+         isFocused: isFocused, // Binds the focus state of the text field to the provided FocusState binding.
          padding: padding // Binding that controls and tracks the focus state of the text field
       )
       return self.textFieldStyle(textFieldStyle)

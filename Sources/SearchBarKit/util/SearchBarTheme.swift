@@ -5,37 +5,43 @@ import HybridColor
  * - Description: This struct holds the theme configuration for the search bar,
  *                which determines the appearance and style of the search bar.
  *                It can be customized to fit different design requirements.
- * - Fixme: ⚠️️ Probably add a public init here?
  * - Fixme: ⚠️️ Add placeholder text color?
  * - Fixme: ⚠️️ Break file into multiple files
  */
 public struct SearchBarTheme {
    /**
-    * - Fixme: ⚠️️ add doc
+    * The color of the icons within the search bar.
     */
    public let iconColor: Color
    /**
-    * - Fixme: ⚠️️ add doc
+    * The color of the text within the search bar.
     */
    public let textColor: Color
    /**
-    * - Fixme: ⚠️️ add doc
+    * The background color of the search bar when it is active.
     */
    public let activeBG: Color
    /**
-    * - Fixme: ⚠️️ add doc
+    * The border color of the search bar when it is active.
     */
    public let activeBorder: Color
    /**
-    * - Fixme: ⚠️️ add doc
+    * The general background color of the search bar.
     */
    public let background: Color
    /**
-    * - Fixme: ⚠️️ add doc
+    * The color of the border around the search bar.
     */
    public let borderColor: Color
    /**
-    * - Fixme: ⚠️️ Add doc
+    * Initializes a new theme for the search bar with specified colors.
+    * - Parameters:
+    *   - iconColor: The color of the icons within the search bar.
+    *   - textColor: The color of the text within the search bar.
+    *   - activeBG: The background color of the search bar when it is active.
+    *   - activeBorder: The border color of the search bar when it is active.
+    *   - background: The general background color of the search bar.
+    *   - borderColor: The color of the border around the search bar.
     */
    public init(iconColor: Color, textColor: Color, activeBG: Color, activeBorder: Color, background: Color, borderColor: Color) {
       self.iconColor = iconColor
