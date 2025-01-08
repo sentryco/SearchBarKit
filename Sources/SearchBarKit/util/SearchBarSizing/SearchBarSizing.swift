@@ -4,7 +4,7 @@ import Foundation
  * - Description: This struct holds the sizing configuration for the search bar,
  *                which determines the dimensions and layout of the search bar.
  *                It can be customized to fit different design requirements.
- * - Fixme: ⚠️️ break file into multiple files
+ * - Fixme: ⚠️️ break file into multiple files 👈
  */
 public struct SearchBarSizing {
    /**
@@ -46,21 +46,5 @@ public struct SearchBarSizing {
       self.verticalPadding = verticalPadding
       self.leftIconHorizontalPadding = leftIconHorizontalPadding
       self.clearButtonPadding = clearButtonPadding
-   }
-}
-/**
- * Default sizing configuration for the search bar.
- */
-extension SearchBarSizing {
-   /**
-    * Default sizing configuration for the search bar.
-    */
-   public static var defaultSizing: SearchBarSizing {
-      .init(
-         horizontalPadding: .zero/*12*/,
-         verticalPadding: 10,
-         leftIconHorizontalPadding: 12,
-         clearButtonPadding: 12
-      )
    }
 }

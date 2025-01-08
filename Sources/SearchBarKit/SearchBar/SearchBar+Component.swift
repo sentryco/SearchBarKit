@@ -87,7 +87,10 @@ extension SearchBar {
          text: $searchText, // Binds the text field to the searchText state
          prompt: placeholderTxt // Sets the placeholder text for the text field
       )
-      .searchTextFieldStyle(isFocused: $textFieldIsFocused) // Applies the search text field style
+      .searchTextFieldStyle(
+         isFocused: $textFieldIsFocused,
+         padding: Self.searchbarSizing.padding
+      ) // Applies the search text field style
       .getHeight { height in
          if isPrintingSearchBar {
             print("searchTextField height: \(height)")
@@ -117,8 +120,8 @@ extension SearchBar {
          if textFieldIsFocused {
             Button(action: handleClearButtonPress) {}
                .clearButtonStyle
-               .padding(SearchBar.searchbarSizing.clearButtonPadding)
-            // .opacity(textFieldIsFocused ? 1 : 0) // Hides shows clear button
+               .padding(.horizontal, SearchBar.searchbarSizing.clearButtonPadding)
+               // .opacity(textFieldIsFocused ? 1 : 0) // Hides shows clear button
                .accessibilityIdentifier("searchClearButton")
                #if DEBUG
                .background(isDebuggingSearchBar ? .purple : .clear)
@@ -133,7 +136,7 @@ extension SearchBar {
                #if DEBUG
                .background(isDebuggingSearchBar ? .teal : .clear)
                #endif
-               .padding(SearchBar.searchbarSizing.clearButtonPadding)
+               .padding(.horizontal, SearchBar.searchbarSizing.clearButtonPadding)
                #if DEBUG
                .background(isDebuggingSearchBar ? .indigo : .clear)
                #endif

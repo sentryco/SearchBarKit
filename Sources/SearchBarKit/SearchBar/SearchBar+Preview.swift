@@ -16,7 +16,7 @@ import HybridColor
  * - Fixme: ⚠️️ Add the focus feature to this preview, a temp solution is in now
  * - Fixme: ⚠️️ clean up dead code
  */
-#Preview(traits: .fixedLayout(width: 400, height: 400)) {
+#Preview(traits: .fixedLayout(width: 300, height: 400)) {
    let searchbarSizing: SearchBarSizing = {
       .init(
          horizontalPadding: SearchBarSizing.defaultSizing.horizontalPadding,
@@ -48,7 +48,7 @@ import HybridColor
 //      #endif // .contentInsetAdjustmentBehavior = .never  
    if isPadDevice { // iPad
       return searchbar
-         .frame(maxWidth: 400, maxHeight: 400) // .ignoresSafeArea(.keyboard, edges: .bottom)  // .edgesIgnoringSafeArea(.all)
+         .frame(maxWidth: 300, maxHeight: 400) // .ignoresSafeArea(.keyboard, edges: .bottom)  // .edgesIgnoringSafeArea(.all)
    } else { // mac or iphone
       return searchbar
    }
