@@ -1,5 +1,9 @@
 [![Tests](https://github.com/sentryco/SearchBarKit/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/SearchBarKit/actions/workflows/Tests.yml)
 [![codebeat badge](https://codebeat.co/badges/80a82bb4-248f-44e1-9117-b780cddbc8e6)](https://codebeat.co/projects/github-com-sentryco-searchbarkit-main)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Swift Version](https://img.shields.io/badge/Swift-5.9-orange)](https://swift.org)
+[![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20macOS-lightgrey.svg)](#)
+
 
 # SearchBarKit
 
@@ -9,22 +13,68 @@
 
 ## Features
 
-- Focus triggers callback and receeded look and feel
-- Text change triggers callback
-- Customizable sizing and color theme (via struct injection)
-- Works for iOS and macOS
-- Dark / light mode
+- 🎯 **Focus Callbacks**: Receive notifications when the search field gains or loses focus.
+- ✍️ **Real-time Text Updates**: Get instant updates as the user types.
+- 🎨 **Effortless Customization**: Easily adjust sizing and color themes via struct injection.
+- 🌐 **Cross-Platform Compatibility**: Works seamlessly on both iOS and macOS.
+- 🌗 **Dark & Light Mode Support**: Automatically adapts to the system's appearance.
 
 ## Example
 
 ```swift
 SearchBar(
-   placeholderText: "Search...", // Placeholder text
-   onFocus: { // Triggered when searchfield is focused
-      Swift.print("isFocused: \($0)")
-   }, onTextChange: { // Triggered when text changes
-      Swift.print("text: \($0)")
-   }
+      placeholderText: "Search...", // Placeholder text
+      onFocus: { isFocused in // Triggered when search field is focused
+         print("isFocused: \(isFocused)")
+      },
+      onTextChange: { text in // Triggered when text changes
+         print("text: \(text)")
+      }
+)
+```
+**Custom Sizing**
+
+```swift
+let customSizing = SearchBarSizing(
+      horizontalPadding: 8,
+      verticalPadding: 8,
+      leftIconHorizontalPadding: 8,
+      clearButtonPadding: 8
+)
+
+SearchBar(
+      placeholderText: "Search...",
+      searchbarSizing: customSizing,
+      onFocus: { isFocused in
+         // Handle focus change
+      },
+      onTextChange: { text in
+         // Handle text change
+      }
+)
+```
+
+**Custom Theme**
+
+```swift
+let customTheme = SearchBarTheme(
+      iconColor: .blue,
+      textColor: .black,
+      activeBG: .white,
+      activeBorder: .blue,
+      background: .gray.opacity(0.2),
+      borderColor: .blue
+)
+
+SearchBar(
+      placeholderText: "Search...",
+      searchBarTheme: customTheme,
+      onFocus: { isFocused in
+         // Handle focus change
+      },
+      onTextChange: { text in
+         // Handle text change
+      }
 )
 ```
 
