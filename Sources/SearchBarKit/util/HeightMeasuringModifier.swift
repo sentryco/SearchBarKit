@@ -6,6 +6,7 @@ struct HeightMeasuringModifier: ViewModifier {
       content
          .background(
             GeometryReader { geometry -> Color in
+               // ficme: use .task instead?
                DispatchQueue.main.async {
                   callback(geometry.size.height)
                }

@@ -33,6 +33,7 @@ public struct SearchBar: View {
     *                changes the text in the search bar. It allows the 
     *                parent view to react and handle the updated search 
     *                text in real-time.
+    * - Note: This callback is a way for caller to listen to changes. It avoids having to add a state in the caller scope. instead we have the state here.
     * - Fixme: ⚠️️⚠️️ The `onTextChange` should probably just be a 👉 binding 👈, so maybe remove that? fix it later when transfereing code and comments from legacy etc
     * - Parameters:
     *   - text: The new text in the search bar.
@@ -53,7 +54,7 @@ public struct SearchBar: View {
     * - Note: Ref: https://www.hackingwithswift.com/quick-start/swiftui/how-to-dismiss-the-keyboard-for-a-textfield
     * - Remark: Hides the clear button if not in "search-mode", sets the background style, and forwards the callback
     * - Remark: This highlights the text in the search bar and sets focus to the text field.
-    * - Fixme: ⚠️️ rename to isTextFieldFocused
+    * - Fixme: ⚠️⚠️⚠️️ rename to isTextFieldFocused 👈 
     */
    @FocusState internal var textFieldIsFocused: Bool // @Binding var textFieldIsFocused: FocusState<Bool>.Binding
    /**
@@ -82,7 +83,15 @@ public struct SearchBar: View {
     *   - textFieldShouldFocusOnInit: A boolean value indicating whether the text field should automatically gain focus when the search bar is initialized.
     *   - searchText: The current text in the search bar.
     */
-   public init(placeholderText: String = "Search..", searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme, onFocus: @escaping OnFocus = defaultOnFocus, onTextChange: @escaping OnTextChange = defaultOnTextChange, /*textFieldIsFocused: FocusState<Bool>.Binding,*/ textFieldShouldFocusOnInit: Bool = false, searchText: String = "") {
+   public init(
+      placeholderText: String = "Search..", 
+      searchbarSizing: SearchBarSizing = SearchBarSizing.defaultSizing, 
+      searchBarTheme: SearchBarTheme = SearchBarTheme.defaultTheme, 
+      onFocus: @escaping OnFocus = defaultOnFocus, 
+      onTextChange: @escaping OnTextChange = defaultOnTextChange, /*textFieldIsFocused: FocusState<Bool>.Binding,*/ 
+      textFieldShouldFocusOnInit: Bool = false, 
+      searchText: String = ""
+   ) {
       self.placeholderText = placeholderText
       self.onFocus = onFocus
       self.onTextChange = onTextChange
@@ -92,5 +101,6 @@ public struct SearchBar: View {
       Self.searchBarTheme = searchBarTheme
    }
 }
+// fixme: remove these as we have gridview now
 public var isDebuggingSearchBar: Bool = false // ⚠️️ Debug colors
 public var isPrintingSearchBar: Bool = false // ⚠️️ Debug sizing

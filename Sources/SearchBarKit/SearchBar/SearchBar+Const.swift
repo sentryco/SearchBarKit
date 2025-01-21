@@ -48,7 +48,9 @@ extension SearchBar {
    /**
     * Default closure for `OnTextChange`
     */
-   public static let defaultOnTextChange: OnTextChange = { (_ text: String) in Swift.print("on text change: \(text)") }
+   public static let defaultOnTextChange: OnTextChange = { (_ text: String) in 
+      Swift.print("on text change: \(text)") 
+   }
    /**
     * Closure called when the search bar gains or loses focus.
     * - Description: This closure is invoked when the search bar 
