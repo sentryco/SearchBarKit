@@ -7,8 +7,6 @@ import HybridColor
  *                such as back and more options, providing a clear and recognizable interactive element.
  * - Note: Used for back and more button in header and in onboarding
  * - Note: Alternative name: `HeaderIconButtonStyle`
- * - Fixme: ⚠️️ doc each variable
- * - Fixme: ⚠️️ break file into multiple files
  * ## Examples:
  * IconButtonStyle(strokeColor, backgroundColor, iconColor, size, iconSize)
  */
@@ -89,8 +87,7 @@ extension Button {
    /**
     * Applies the `HeaderIconStyle` to a button.
     * - Description: This method modifies a button by applying the `HeaderIconStyle`, which includes customizations for the icon's appearance and the button's overall style. It sets the icon name, size, color, background color, stroke color, stroke width, and padding according to the style's properties.
-    * - Fixme: ⚠️️ Move iconName, iconSize to const
-    * - Fixme: ⚠️️ Also pull colors from pallet later etc
+    * - Fixme: ⚠️️ Move iconName, iconSize to const, or?
     */
    internal var clearButtonStyle: some View {
       let buttonStyle: HeaderIconStyle = .init( // Applies the header icon style to the button.

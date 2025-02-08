@@ -22,7 +22,7 @@ extension SearchBarTheme {
  */
 extension SearchBarTheme {
    /**
-    * - Fixme: ⚠️️ move to somewhere else
+    * - Fixme: ⚠️️ move to somewhere else, elaborate?
     */
    fileprivate static let iconColor: Color = {
       .init(
@@ -33,7 +33,7 @@ extension SearchBarTheme {
       )
    }()
    /**
-    * - Fixme: ⚠️️ move somewhere else
+    * - Fixme: ⚠️️ move somewhere else, elaborate?
     */
    fileprivate static let textColor: Color = { // Secondary label color
       #if os(macOS)
@@ -46,7 +46,7 @@ extension SearchBarTheme {
     * Active
     */
    fileprivate static let activeBG: Color = {
-      let light = Color.white //.init(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) // - Fixme: ⚠️️ describe the setup of this color?
+      let light = Color.white
       #if os(iOS)
       let dark = Color.darkGray.opacity(0.5)
       #elseif os(macOS)
@@ -76,7 +76,7 @@ extension SearchBarTheme {
     * - Note: Alt name: `inActiveBG`
     */
    fileprivate static let background: Color = {
-      let light = Color.white // .init(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) // - Fixme: ⚠️️ describe the setup of this color?
+      let light = Color.white 
       #if os(iOS)
       let dark = Color.darkGray.opacity(0.3)
       #elseif os(macOS)

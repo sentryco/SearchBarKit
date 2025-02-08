@@ -11,7 +11,6 @@ extension SearchBar {
     *                button.
     * - Note: We can also do this with rebinding: 
     *         https://stackoverflow.com/a/57875903/5389500
-    * - Fixme: ⚠️️ We should probably just use a VStack where searchTextField expands to near the clearButton etc, try width: infinity etc
     */
    public var body: some View {
       stack
@@ -30,6 +29,7 @@ extension SearchBar {
          }
    }
 }
+// fixme: remove the bellow soon, if the above works fine?
 // .onAppear {
 //    if textFieldShouldFocusOnInit {
 //       DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

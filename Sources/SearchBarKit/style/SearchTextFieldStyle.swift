@@ -6,25 +6,24 @@ import SwiftUI
  *                background that fits seamlessly within a 
  *                search bar design.
  * - Note: Used in SearchBar
- * - Fixme: ⚠️️ Tweak the corner radius somewhat
- * - Fixme: ⚠️️ Break file into multiple files
+ * - Fixme: ⚠️️ Tweak the corner radius some what, or is it fine as is?
  */
 fileprivate struct SearchTextFieldStyle: TextFieldStyle {
    /**
-    * - Fixme: ⚠️️ This can probably just be a bool, as we don't set anything in this scope
+    * - Fixme: ⚠️️ This can probably just be a bool, as we don't set anything in this scope, check with copilot?
     */
    fileprivate var isFocused: FocusState<Bool>.Binding
    /**
     * - Description: Indicates whether the text field is currently focused, affecting the visual style and behavior.
-    * - Fixme: ⚠️️ rename to innerPadding
+    * - Note: Alt name: `innerPadding`
     */
    fileprivate var padding: EdgeInsets
    /**
     * - Description: Constructs the visual representation of 
     *                the text field, applying custom styling 
     *                and layout modifications.
-    * - Fixme: ⚠️️ We can probably reuse, some general RoundedTextField style etc, see: RoundedBorderTextFieldStyle
-    * - Fixme: ⚠️️ Make text color more prominent when focused
+    * - Fixme: ⚠️️ We can probably reuse, some general RoundedTextField style etc, see: RoundedBorderTextFieldStyle, still relevant?
+    * - Fixme: ⚠️️ Make text color more prominent when focused, still relevant?
     * - Parameter configuration: The TextField configuration that defines the text field's appearance and interaction.
     * - Returns: A view representing the styled text field.
     */
@@ -63,7 +62,7 @@ extension TextField {
    }
    /**
     * Applies the search text field style to a TextField.
-    * - Fixme: ⚠️️ rename padding to innerPadding?
+    * - Fixme: ⚠️️ rename padding to innerPadding? yes probably
     * - Parameter isFocused: A binding to a Boolean value that indicates whether the text field is currently focused.
     * - Parameter padding: The padding to apply around the text field, specified as an EdgeInsets.
     * - Returns: A view modifier that applies the search text field style to the TextField.
@@ -78,7 +77,7 @@ extension TextField {
 }
 /**
  * Preview
- * - Fixme: ⚠️️ use @Previewable here instead of bouilerplate debugview code
+ * - Fixme: ⚠️️ use @Previewable here instead of boilerplate debugview code, can we use æPreviewable with @focusstate? doublecheck with copilot?
  */
 #Preview(traits: .fixedLayout(width: 340, height: 300)) {
    struct DebugView: View {

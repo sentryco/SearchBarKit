@@ -9,7 +9,7 @@ extension SearchBar {
     * - Description: This property holds the sizing configuration for the search bar,
     *                which determines the dimensions and layout of the search bar.
     *                It can be customized to fit different design requirements.
-    * - Fixme: ⚠️️ rename to sizing?
+    * - Note: Alt name `sizing`
     */
    internal static var searchbarSizing: SearchBarSizing = .defaultSizing
    /**
@@ -17,14 +17,14 @@ extension SearchBar {
     * - Description: This property holds the theme configuration for the search bar,
     *                which determines the appearance and style of the search bar.
     *                It can be customized to fit different design requirements.
-    * - Fixme: ⚠️️ rename to theme?
+    * - Note: Alt name `theme`
     */
    internal static var searchBarTheme: SearchBarTheme = .defaultTheme
    /**
     * Placeholder color for the search bar.
     * - Description: This property defines the color used for the placeholder text in the search bar.
     *                It adjusts its opacity based on the theme to ensure optimal visibility across different backgrounds.
-    * - Fixme: ⚠️️ it seems placeholder color only works for iOS at the moment. try to figure out why etc
+    * - Fixme: ⚠️️ It seems placeholder color only works for iOS at the moment. Try to figure out why etc, check with copilot etc?
     */
    internal static let placeholderColor: Color = {
       .init(light: .gray, dark: .gray).opacity(0.8)
@@ -64,5 +64,7 @@ extension SearchBar {
    /**
     * Default closure for OnFocus.
     */
-   public static let defaultOnFocus: OnFocus = { (_ isFocused: Bool) in Swift.print("isfocused: \(isFocused)") }
+   public static let defaultOnFocus: OnFocus = { (_ isFocused: Bool) in 
+      Swift.print("isfocused: \(isFocused)") 
+   }
 }

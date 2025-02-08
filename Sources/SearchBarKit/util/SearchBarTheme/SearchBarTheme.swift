@@ -5,8 +5,7 @@ import HybridColor
  * - Description: This struct holds the theme configuration for the search bar,
  *                which determines the appearance and style of the search bar.
  *                It can be customized to fit different design requirements.
- * - Fixme: ⚠️️ Add placeholder text color?
- * - Fixme: ⚠️️ Break file into multiple files
+ * - Fixme: ⚠️️ Add placeholder text color? yes probably
  */
 public struct SearchBarTheme {
    /**
@@ -43,7 +42,14 @@ public struct SearchBarTheme {
     *   - background: The general background color of the search bar.
     *   - borderColor: The color of the border around the search bar.
     */
-   public init(iconColor: Color, textColor: Color, activeBG: Color, activeBorder: Color, background: Color, borderColor: Color) {
+   public init(
+      iconColor: Color, 
+      textColor: Color, 
+      activeBG: Color, 
+      activeBorder: Color, 
+      background: Color, 
+      borderColor: Color
+   ) {
       self.iconColor = iconColor
       self.textColor = textColor
       self.activeBG = activeBG

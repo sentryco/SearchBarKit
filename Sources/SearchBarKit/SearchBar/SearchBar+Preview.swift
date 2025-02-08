@@ -9,12 +9,8 @@ import HybridColor
  *                layout varies depending on the device type (mac, pad, 
  *                or phone).
  * - Note: We keep this in interfacelib since AF-extension and APP uses it
- * - Fixme: ⚠️️ Add debug view with state etc? 👈 yes please
- * - Fixme: ⚠️️ Add clause for iPad preview
- * - Fixme: ⚠️️ Figure put the preview focus hover issue only on iPad etc, Might go away in simulator? double check this when we setup UITests for ipad etc
- * - Fixme: ⚠️️ Move the Search... to const, still relevant?
- * - Fixme: ⚠️️ Add the focus feature to this preview, a temp solution is in now
- * - Fixme: ⚠️️ clean up dead code
+ * - Fixme: ⚠️️ Figure put the preview focus hover issue only on iPad etc, Might go away in simulator? double check this when we setup UITests for ipad etc, still relevant?
+ * - Fixme: ⚠️️ Add the focus feature to this preview, a temp solution is in now, still relevant?
  */
 #Preview(traits: .fixedLayout(width: 300, height: 400)) {
    let searchbarSizing: SearchBarSizing = {
@@ -42,13 +38,10 @@ import HybridColor
          Rectangle()
             .fill(Color.blackOrWhite)
             .overlay(Color.gray.opacity(0.15))
-      ) // .background(Color.tertiaryBackground)
-//      #if os(macOS)
-//      .padding(.horizontal)
-//      #endif // .contentInsetAdjustmentBehavior = .never  
+      )
    if isPadDevice { // iPad
       return searchbar
-         .frame(maxWidth: 300, maxHeight: 400) // .ignoresSafeArea(.keyboard, edges: .bottom)  // .edgesIgnoringSafeArea(.all)
+         .frame(maxWidth: 300, maxHeight: 400) 
    } else { // mac or iphone
       return searchbar
    }

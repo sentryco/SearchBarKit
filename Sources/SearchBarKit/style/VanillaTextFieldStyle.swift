@@ -7,14 +7,13 @@ import SwiftUI
  *                to provide a cleaner and more controlled 
  *                text input experience.
  * - Note: Alternate name: `CleanTextField`
- * - Fixme: ⚠️️ break file into multiple files
  */
 fileprivate struct VanillaTextFieldStyle: TextFieldStyle {
    /**
     * - Description: Applies the vanilla text field style to the text field.
     * - Note: there is also: `.scrollDismissesKeyboard(.immediately)`
     * - Note: We set this to .keyboardType(.asciiCapable), to avoid some keyboard shenaneganze, but this will not support russian characters tho
-    * - Fixme: ⚠️️ this might not actually work, if we also add another textfiledstyle, do some testing
+    * - Fixme: ⚠️️ this might not actually work, if we also add another textfiledstyle, do some testing, still relevant?
     * - Parameter configuration: The configuration to apply to the text field.
     * - Returns: A modified version of the text field with the vanilla text field style applied.
     */
@@ -50,7 +49,6 @@ extension View {
          #if os(macOS)
          .textFieldStyle(.plain)
          #endif
-         // .previewLayout(.sizeThatFits)
          .padding()
          .background(Color.blackOrWhite)
          #if os(macOS)
@@ -58,5 +56,4 @@ extension View {
          #endif
    }
    .environment(\.colorScheme, .dark)
-   // .frame(width: 200, height: 100)
 }

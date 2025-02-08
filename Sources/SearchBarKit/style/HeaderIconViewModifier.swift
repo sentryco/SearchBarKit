@@ -7,8 +7,7 @@ import HybridColor
  *                background color, stroke color, stroke width, and 
  *                padding.
  * - Note: Used in many places that has an Icon
- * - Fixme: ⚠️️ Reuse other modifiers for some of the styling here etc
- * - Fixme: ⚠️️ break file into multiple files
+ * - Fixme: ⚠️️ Reuse other modifiers for some of the styling here etc, elaborate?
  */
 fileprivate struct HeaderIconViewModifier: ViewModifier {
    /**
@@ -47,14 +46,14 @@ extension HeaderIconViewModifier {
    /**
     * Body
     * - Description: The body of the view modifier.
-    * - Fixme: ⚠️️ Wrap the body content in a stack or something? 👈
-    * - Fixme: ⚠️️ There might be a simpler way of adding both foreground color and stroke to a circle
+    * - Fixme: ⚠️️ Wrap the body content in a stack or something? still relevant?
+    * - Fixme: ⚠️️ There might be a simpler way of adding both foreground color and stroke to a circle, check with copilot?
     * - Parameter content: The content to display.
     * - Returns: A modified version of the content with the header icon view modifier applied.
     */
-   @ViewBuilder // - Fixme: ⚠️️ Remove this when we add a stack
+   @ViewBuilder // - Fixme: ⚠️️ Remove this when we add a stack, rational?
    fileprivate func body(content: Content) -> some View {
-      content // - Fixme: ⚠️️ Remove this?
+      content // - Fixme: ⚠️️ Remove this? elaborate?
       ZStack(alignment: .init(horizontal: .center, vertical: .center)) {
          background // Background shape
          stroke // Stroke shape
@@ -64,8 +63,8 @@ extension HeaderIconViewModifier {
    }
    /**
     * Background
-    * - Fixme: ⚠️️ make a background circle modifier for this, see similar code elsewhere
-    * - Fixme: ⚠️️ try to figure out how use padding for sizing?
+    * - Fixme: ⚠️️ make a background circle modifier for this, see similar code elsewhere, analysis?
+    * - Fixme: ⚠️️ try to figure out how use padding for sizing? check with copilot?
     */
    fileprivate var background: some View {
       Circle() // icon
@@ -75,11 +74,11 @@ extension HeaderIconViewModifier {
             height: iconSize + padding, // Height of the background circle
             alignment: .center // Aligns the background circle to the center
          )
-         .aspectRatio(contentMode: .fit) // - Fixme: ⚠️️ probably not needed
+         .aspectRatio(contentMode: .fit) // - Fixme: ⚠️️ probably not needed, analysis?
    }
    /**
     * Stroke
-    *  - Fixme: ⚠️️ make a stroke circle modifier for this, see circle extension modifer code elsewhere
+    *  - Fixme: ⚠️️ make a stroke circle modifier for this, see circle extension modifer code elsewhere, check with copilot?
     */
    fileprivate var stroke: some View {
       Circle()
@@ -90,13 +89,13 @@ extension HeaderIconViewModifier {
             height: iconSize + padding, // Height of the stroke circle
             alignment: .center // Aligns the stroke circle to the center
          )
-         .aspectRatio(contentMode: .fit) // - Fixme: ⚠️️ probably not needed
+         .aspectRatio(contentMode: .fit) // - Fixme: ⚠️️ probably not needed, analysis?
    }
    /**
     * Icon
     * - Description: The icon to display.
-    * - Fixme: ⚠️️ Remake this as image modifier and make it more modular etc, find the image modifier code somewhere etc
-    * - Fixme: ⚠️️ Use the icon modifier on this
+    * - Fixme: ⚠️️ Remake this as image modifier and make it more modular etc, find the image modifier code somewhere etc, use copilot?
+    * - Fixme: ⚠️️ Use the icon modifier on this, which one?
     * - Returns: A modified version of the content with the header icon view modifier applied.
     */
    fileprivate var icon: some View {
@@ -114,8 +113,7 @@ extension View {
    /**
     * Applies the header icon view modifier to the view.
     * - Note: We use this for `main-row-brand-icon` and `header-circle-icon`
-    * - Fixme: ⚠️️ Add stroke to this?
-    * - Fixme: ⚠️️ This could be better if we just made a struct? instead of a modifier, and instead add modifer to the icon at least? or?
+    * - Fixme: ⚠️️ This could be better if we just made a struct? instead of a modifier, and instead add modifer to the icon at least? something like that yes
     * - Parameters:
     *   - iconName: The name of the system icon to display.
     *   - iconSize: The size of the icon.

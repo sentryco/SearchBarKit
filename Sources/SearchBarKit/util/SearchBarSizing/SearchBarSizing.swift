@@ -11,16 +11,14 @@ public struct SearchBarSizing {
     * Horizontal padding for the search bar.
     * - Description: This property determines the horizontal padding around the search bar,
     *                which affects the overall width of the search bar.
-    * - Fixme: ⚠️️ rename to textHor...
-    * - Fixme: ⚠️️ rename to ...innerPadding?
+    * - Note: Alt name: `horizontalInnerPadding`
     */
    public let horizontalPadding: CGFloat
    /**
     * Vertical padding for the search bar.
     * - Description: This property determines the vertical padding around the search bar,
     *                which affects the overall height of the search bar.
-    * - Fixme: ⚠️️ rename to textVer...
-    * - Fixme: ⚠️️ rename to ...innerPadding?
+    * - Note: Alt name: `verticalInnerPadding`
     */
    public let verticalPadding: CGFloat
    /**
@@ -40,8 +38,14 @@ public struct SearchBarSizing {
     *                including horizontal and vertical padding for the search bar itself, padding for the left icon,
     *                and padding for the clear button. These configurations help in customizing the layout and spacing
     *                within the search bar to match design specifications.
+    * fixme: add param doc
     */
-   public init(horizontalPadding: CGFloat, verticalPadding: CGFloat, leftIconHorizontalPadding: CGFloat, clearButtonPadding: CGFloat) {
+   public init(
+      horizontalPadding: CGFloat, 
+      verticalPadding: CGFloat, 
+      leftIconHorizontalPadding: CGFloat, 
+      clearButtonPadding: CGFloat
+   ) {
       self.horizontalPadding = horizontalPadding
       self.verticalPadding = verticalPadding
       self.leftIconHorizontalPadding = leftIconHorizontalPadding

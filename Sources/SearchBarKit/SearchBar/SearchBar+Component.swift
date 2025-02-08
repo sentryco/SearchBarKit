@@ -2,7 +2,7 @@ import SwiftUI
 import HybridColor
 /**
  * Components
- * - Fixme: ⚠️️ Take a look at the new `focusEffectDisabled`: https://stackoverflow.com/a/77681648/5389500 and https://stackoverflow.com/a/60286113/5389500
+ * - Fixme: ⚠️️ Take a look at the new `focusEffectDisabled`: https://stackoverflow.com/a/77681648/5389500 and https://stackoverflow.com/a/60286113/5389500 for what purpouse? elaborate?
  */
 extension SearchBar {
    /**
@@ -16,13 +16,13 @@ extension SearchBar {
          clearButton // Adds clearButton to the right
       }
          .background(
-            backgroundView
+            backgroundView // fixme: doc this line
          )
-         .getHeight { height in
-            if isPrintingSearchBar {
-               print("SearchBar height: \(height)")
-            }
-         }
+         // .getHeight { height in
+         //    if isPrintingSearchBar {
+         //       print("SearchBar height: \(height)")
+         //    }
+         // }
    }
 }
 /**
@@ -32,22 +32,22 @@ extension SearchBar {
    /**
     * Creates background view for the `SearchBar`
     * - Remark: Represents the background for the input-text-field (has rounded corners etc)
-    * - Fixme: ⚠️️ Move cornerRadius to const
+    * - Fixme: ⚠️️ Move cornerRadius to const, yes or add to the style somehow?
     */
    fileprivate var backgroundView: some View {
       let style: SearchBar.Style = SearchBar.getStyle(isFocused: textFieldIsFocused)
       return RoundedRectangle(cornerRadius: 10) // Creates a rounded rectangle with a corner radius of 12 to be used as an overlay.
          .stroke( // Strokes the border of the rounded rectangle with a gray color and a line width of 1.0.
-            style.borderColor,
-            lineWidth: style.borderWidth
+            style.borderColor, // fixme: doc this line
+            lineWidth: style.borderWidth // fixme: doc this line
          )
-         .fill(style.backgroundColor)
+         .fill(style.backgroundColor) // fixme: doc this line
    }
    /**
     * Creates the icon (leftIcon)
-    * - Fixme: ⚠️️ Maybe also add focused and unfocused state for this? change the colors etc?
-    * - Fixme: ⚠️️ Move icon to const
-    * - Fixme: ⚠️️ Consider moving size to const 👈
+    * - Fixme: ⚠️️ Maybe also add focused and unfocused state for this? change the colors etc? maybe later
+    * - Fixme: ⚠️️ Move icon to const, or to style?
+    * - Fixme: ⚠️️ Consider moving size to const, or to style?
     */
    fileprivate var leftIcon: some View {
       Image(optionalSystemName: "magnifyingglass")?
@@ -63,7 +63,6 @@ extension SearchBar {
          }
    }
    /**
-    * searchTextField
     * - Description: This view represents the search text field in the 
     *                search bar. It is responsible for displaying the 
     *                search input and handling focus state changes.
@@ -74,7 +73,7 @@ extension SearchBar {
               field to gain or lose focus programmatically, which is 
               essential for managing the user's interaction with the 
               search bar.
-    * - Fixme: ⚠️️ Move logic into modifiers, see `PinCode`, how it's done there etc? 👈 can searchbar be a style or a modifier etc?
+    * - Fixme: ⚠️️ Move logic into modifiers, see `PinCode`, how it's done there etc? 👈 can searchbar be a style or a modifier etc? expand on this
     * - Fixme: ⚠️️ Remove the TextField id. we set the real id later? make sure UITests keep running etc
     */
    fileprivate var searchTextField: some View {
@@ -91,11 +90,11 @@ extension SearchBar {
          isFocused: $textFieldIsFocused,
          padding: Self.searchbarSizing.padding
       ) // Applies the search text field style
-      .getHeight { height in
-         if isPrintingSearchBar {
-            print("searchTextField height: \(height)")
-         }
-      }
+      // .getHeight { height in
+      //    if isPrintingSearchBar {
+      //       print("searchTextField height: \(height)")
+      //    }
+      // }
       .accessibilityIdentifier("searchTextField") // Sets the accessibility identifier for the text field
       .onChange(of: textFieldIsFocused) { _, _ in // Listens for changes in textFieldIsFocused
          onFocus(textFieldIsFocused) // Calls the onFocus callback with the updated focus state
@@ -110,10 +109,9 @@ extension SearchBar {
     * - Note: We can also use self.hideKeyboard()
     * - Remark: Clears the search field, hides the clear button, ends text focus, and forwards the callback
     * - Fixme: ⚠️️ Move the onClear to a method? or better move it to a modifier, see pin for how, hold off on that, still relevant?
-    * - Fixme: ⚠️️ Or make a binding to searchMode, wait until things are more settled, transfer code from legacy etc
-    * - Fixme: ⚠️️ Use accessId? there is a ZStack in the style, or does it work as is?
-    * - Fixme: ⚠️️ Move accessibilityIdentifier to a const?
-    * - Fixme: ⚠️️ move iconSize to contst
+    * - Fixme: ⚠️️ Use accessId? there is a ZStack in the style, or does it work as is? edit it while uitests run etc
+    * - Fixme: ⚠️️ Move accessibilityIdentifier to a const? yepp, do it while UITests run etc
+    * - Fixme: ⚠️️ move iconSize to contst, or style?
     */
    fileprivate var clearButton: some View {
       @ViewBuilder var view: some View {
@@ -121,6 +119,7 @@ extension SearchBar {
             Button(action: handleClearButtonPress) {}
                .clearButtonStyle
                .padding(.horizontal, SearchBar.searchbarSizing.clearButtonPadding)
+               // fixme: ⚠️️ remove the bellow code?
                // .opacity(textFieldIsFocused ? 1 : 0) // Hides shows clear button
                .accessibilityIdentifier("searchClearButton")
                #if DEBUG
@@ -143,10 +142,10 @@ extension SearchBar {
          }
       }
       return view
-         .getHeight { height in
-            if isPrintingSearchBar {
-               print("clearButton height: \(height)")
-            }
-         }
+         // .getHeight { height in
+         //    if isPrintingSearchBar {
+         //       print("clearButton height: \(height)")
+         //    }
+         // }
    }
 }

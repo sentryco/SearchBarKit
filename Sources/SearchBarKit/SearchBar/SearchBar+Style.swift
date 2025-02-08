@@ -10,8 +10,8 @@ extension SearchBar {
     *                border color, and border width of the SearchBar.
     * - Remark: Represents the background color, border color, and 
     *          border width for the search bar button.
-    * - Fixme: ⚠️️ Consider using a struct instead of a typealias for better readability and maintainability.
-    * - Fixme: ⚠️️ Rename to SearchBarStyle?
+    * - Fixme: ⚠️️ Consider using a 👉 struct 👈 instead of a typealias for better readability and maintainability.
+    * - Note: Alt name `SearchBarStyle`
     */
    internal typealias Style = (
       backgroundColor: Color, // The background color of the search bar.
@@ -27,6 +27,7 @@ extension SearchBar {
     * - Remark: Defines the background color, border color, and border 
     *          width for the search bar.
     * - Fixme: ⚠️️ Move this call into the scope of SearchBar.Style ?
+    * fixme: add doc for isFocused param
     */
    internal static func getStyle(isFocused: Bool) -> SearchBar.Style {
       isFocused ? activeBGStyle : inActiveBGStyle

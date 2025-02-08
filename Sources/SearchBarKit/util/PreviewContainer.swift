@@ -17,11 +17,6 @@ import SwiftUI
  *       Text("Hello, World!")
  *   }
  *   ```
- * - Fixme: ⚠️️ Rename to something better like? or keep as is?
- * - Fixme: ⚠️️ Add support for both VStack and HStack, toggle it with a bool in init? or a generic bool?
- * - Fixme: ⚠️️ Move dark to top and light to bottom? or keep as is?
- * - Fixme: ⚠️️ Split into multiple files?
- * - Fixme: ⚠️️ Potentially make it opensource? 👈
  */
 internal struct PreviewContainer<Content: View>: View {
    /**

@@ -1,6 +1,6 @@
 import SwiftUI
 /**
- * handler
+ * Handler
  */
 extension SearchBar {
    /**

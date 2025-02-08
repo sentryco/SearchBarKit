@@ -12,9 +12,9 @@ extension Image {
     * - Description: This function applies a style to the image, 
     *                resizing it to the specified size, adding padding, 
     *                and setting the color.
-    * - Fixme: ⚠️️ more advance modifier for images:  https://stackoverflow.com/a/59534345/5389500
-    * - Fixme: ⚠️️ might be able to use that link for Text modifiers sa well?
-    * - Fixme: ⚠️️ make padding edge-inset?
+    * - Fixme: ⚠️️ More advance modifier for images:  https://stackoverflow.com/a/59534345/5389500 still relevant?
+    * - Fixme: ⚠️️ Might be able to use that link for Text modifiers sa well? still relevant?
+    * - Fixme: ⚠️️ Make padding edge-inset? still relevant?
     * - Parameters:
     *   - size: The size to resize the image to.
     *   - padding: The amount of padding to add around the image.
@@ -69,7 +69,7 @@ extension Image {
  *                with additional padding and a background color that 
  *                is either black or white, depending on the current 
  *                color scheme.
- * - Fixme: ⚠️️ add support for relativly sized? later?
+ * - Fixme: ⚠️️ Add support for relativly sized? later? requires research etc
  */
 #Preview(traits: .fixedLayout(width: 400, height: 400)) {
    PreviewContainer {
