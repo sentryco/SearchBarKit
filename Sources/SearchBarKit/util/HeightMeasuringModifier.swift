@@ -1,5 +1,5 @@
 import SwiftUI
-
+// fixme: mark this as debug?
 struct HeightMeasuringModifier: ViewModifier {
    let callback: (CGFloat) -> Void
    func body(content: Content) -> some View {

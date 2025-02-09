@@ -3,6 +3,7 @@ import SwiftUI
 @testable import SearchBarKit
 
 final class SearchBarKitTests: XCTestCase {
+   // fixme: remove this? use uitests instead?
    // ⚠️️ doesnt work
 //    func testSearchBarTextChange() {
 //        let exp = expectation(description: "Text change callback")
