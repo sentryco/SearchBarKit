@@ -87,7 +87,7 @@ extension TextField {
          TextField("test-text-field", text: $text)
             .searchTextFieldStyle(isFocused: $textFieldIsFocused)
             .padding()
-            .background(Color.blackOrWhite.opacity(1))
+            .background(Color.blackOrWhite)
             #if os(macOS)
             .padding(.horizontal)
             #endif

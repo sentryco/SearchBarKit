@@ -76,6 +76,6 @@ extension Image {
       Image(optionalSystemName: "heart")?
          .iconStyle(size: 16, padding: 0)
          .padding()
-         .background(Color.blackOrWhite.opacity(1))
+         .background(Color.blackOrWhite)
    }
 }

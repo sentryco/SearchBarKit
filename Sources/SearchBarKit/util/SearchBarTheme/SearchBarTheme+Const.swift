@@ -95,7 +95,7 @@ extension SearchBarTheme {
    fileprivate static let borderColor: Color = {
       let light: Color = {
          #if os(iOS)
-         Color.darkGray.opacity(1)
+         Color.darkGray
          #elseif os(macOS)
          tertiary
          #endif
