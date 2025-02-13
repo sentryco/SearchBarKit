@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * Contains the `SearchField` and related UI elements
- * fixme: add abstract
+ * Abstract: A SwiftUI view component that provides a customizable and interactive search interface, including text input, placeholder, and focus management.
  * - Description: The `SearchBar` struct defines a user interface component
  *                for text-based search functionality within an app. It
  *                includes a text field for user input, a placeholder to
@@ -59,7 +59,11 @@ public struct SearchBar: View {
     */
    @FocusState internal var textFieldIsFocused: Bool
    /**
-    * fixme: add description
+     * Determines whether the text field should automatically gain focus upon initialization.
+     * - Description: A Boolean value that specifies if the search bar's text field should automatically
+     *                become the first responder and receive input focus when the search bar view is created.
+     *                If set to true, the keyboard will appear immediately, allowing the user to start typing
+     *                without needing to tap the text field.
     * - Imporatnt: ⚠️️ Temp hack for now. Solve in a better way by injecting a binding or something. Check with copilot. or placing @FocusState in the caller, i guess keeping it here is better, and figuring out a way to inject it. but its not obvious how
     * - Note: This will highlight the text on init, so that the user can type immidiatly
     * - Fixme: ⚠️️ Check the code in the PinView package, maybe it has better init focus code?

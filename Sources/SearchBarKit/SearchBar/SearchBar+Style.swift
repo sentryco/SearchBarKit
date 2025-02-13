@@ -27,7 +27,7 @@ extension SearchBar {
     * - Remark: Defines the background color, border color, and border 
     *          width for the search bar.
     * - Fixme: ⚠️️ Move this call into the scope of SearchBar.Style ?
-    * fixme: add doc for isFocused param
+    * - Parameter isFocused: A Boolean value indicating whether the search bar is currently focused.
     */
    internal static func getStyle(isFocused: Bool) -> SearchBar.Style {
       isFocused ? activeBGStyle : inActiveBGStyle
