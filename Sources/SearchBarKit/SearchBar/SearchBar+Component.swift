@@ -12,8 +12,23 @@ extension SearchBar {
    internal var stack: some View {
       HStack(spacing: .zero) { // Initializes a ZStack to layer the searchTextField and the HStack containing icons and clear button
          leftIcon // Adds search icon to the left
+//            #if DEBUG
+//            .getHeightValue { height in
+//               print("👉 Searchbar.Icon height: \(height)")
+//            }
+//            #endif
          searchTextField // Displays the search text field
+//            #if DEBUG
+//            .getHeightValue { height in
+//               print("👉 Searchbar.TextField height: \(height)")
+//            }
+//            #endif
          clearButton // Adds clearButton to the right
+//            #if DEBUG
+//            .getHeightValue { height in
+//               print("👉 Searchbar.ClearButton height: \(height)")
+//            }
+//            #endif
       }
          .background(
             backgroundView // fixme: doc this line

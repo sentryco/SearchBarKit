@@ -11,6 +11,7 @@ import HybridColor
  * - Note: We keep this in interfacelib since AF-extension and APP uses it
  * - Fixme: ⚠️️ Figure put the preview focus hover issue only on iPad etc, Might go away in simulator? double check this when we setup UITests for ipad etc, still relevant?
  * - Fixme: ⚠️️ Add the focus feature to this preview, a temp solution is in now, still relevant?
+ * - Fixme: ⚠️️ add PreviewContent?
  */
 #Preview(traits: .fixedLayout(width: 300, height: 400)) {
    let searchbarSizing: SearchBarSizing = {
@@ -33,7 +34,12 @@ import HybridColor
       textFieldShouldFocusOnInit: false,
       searchText: "" // "Adobe"
    )
-      .padding() // Outer padding
+      #if DEBUG
+      .getHeightValue { height in
+         print("👉 Searchbar height: \(height)")
+      }
+      #endif
+      .padding() // Outer preview padding
       .background(
          Rectangle()
             .fill(Color.blackOrWhite)

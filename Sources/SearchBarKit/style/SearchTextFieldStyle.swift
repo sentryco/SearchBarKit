@@ -34,12 +34,20 @@ fileprivate struct SearchTextFieldStyle: TextFieldStyle {
          #endif
          .focused(isFocused) // Binds the text field's focus state to the provided FocusState binding, allowing programmatic control of focus
          .vanillaTextFieldStyle // Adds the modifiers that disable some default keyboard things we don't need, see password input field etc
-         .font(.title3) // Sets the font style to title3 (similar to .label)
+         .font(.system(size: 20))
+//         .font(.title3)
+         .frame(height: 20 * 1.2) // 24
+//         .font(.title3) // Sets the font style to title3 (similar to .label)
          .foregroundColor(SearchBar.searchBarTheme.textColor) // font color
+//         #if DEBUG
+//         .getHeightValue { height in
+//            print("👉 Searchbar.TextField height: \(height)")
+//         }
+//         #endif
          #if DEBUG
          .background(isDebuggingSearchBar ? .purple : .clear)
          #endif
-         .padding(padding) // Inner padding
+         .padding(padding) // Padding around TextField
          #if DEBUG
          .background(isDebuggingSearchBar ? .pink : .clear)
          #endif

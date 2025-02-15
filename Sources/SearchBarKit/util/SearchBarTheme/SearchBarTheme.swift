@@ -6,6 +6,7 @@ import HybridColor
  *                which determines the appearance and style of the search bar.
  *                It can be customized to fit different design requirements.
  * - Fixme: ⚠️️ Add placeholder text color? yes probably
+ * - Fixme: ⚠️️ Add font size, and line-height multiplier
  */
 public struct SearchBarTheme {
    /**
