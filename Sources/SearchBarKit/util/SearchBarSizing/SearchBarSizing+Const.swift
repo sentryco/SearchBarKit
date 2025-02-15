@@ -10,7 +10,7 @@ extension SearchBarSizing {
       #if os(iOS)
       .init(
          horizontalPadding: .zero,
-         verticalPadding: 10,
+         verticalPadding: 8, /*10*/
          leftIconHorizontalPadding: 12,
          clearButtonPadding: 12
       )
